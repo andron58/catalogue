@@ -11,8 +11,13 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    dbconnect.cpp \
+    connect.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    dbconnect.h \
+    connect.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    dbconnect.ui
