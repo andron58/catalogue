@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
 
 TARGET = catalogue
 TEMPLATE = app
@@ -12,12 +12,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    dbconnect.cpp \
-    connect.cpp
+    preferencesdialog.cpp
 
 HEADERS  += mainwindow.h \
-    dbconnect.h \
-    connect.h
+    connection.h \
+    preferencesdialog.h
 
 FORMS    += mainwindow.ui \
-    dbconnect.ui
+    preferencesdialog.ui

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <host>192.168.0.103</host>
+    <databasename>catalog</databasename>
+    <username>postgres</username>
+    <password>123</password>
+    <port>5432</port>
+</database>

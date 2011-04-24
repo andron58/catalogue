@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "dbconnect.h"
-
+#include "preferencesdialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -17,6 +16,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_action_activated()
 {
-    DBConnect d;
-    d.exec();
+    PreferencesDialog dialog;
+    dialog.exec();
 }
