@@ -2,7 +2,8 @@
 #define CONNECTION_H
 
 #include <QtGui>
-#include <QtSql/QPSQLDriver>
+//#include <QtSql/QPSQLDriver>
+#include <QPSQLDriver>
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlError>
 
@@ -46,8 +47,7 @@ static bool createConnection(QString& host, int& port, QString& dataBaseName,
     //int port = 5432;
    // connectionParametrs(host, port, dataBaseName, userName, password);
 
-
-    QSqlDatabase db = QSqlDatabase::addDatabase("QPSQLdriver");
+    QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
     db.setHostName(host);
     db.setDatabaseName(dataBaseName);
     db.setUserName(userName);

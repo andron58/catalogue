@@ -9,6 +9,9 @@ QT       += core gui sql
 TARGET = catalogue
 TEMPLATE = app
 
+INCLUDEPATH+= "C:/pgsql/include"
+LIBS+= "C:/pgsql/lib/libpq.lib"
+
 
 SOURCES += main.cpp\
         mainwindow.cpp \
@@ -20,3 +23,4 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui \
     preferencesdialog.ui
+
