@@ -3,6 +3,6 @@
     <host>95.83.65.235</host>
     <databasename>catalog</databasename>
     <username>postgres</username>
-    <password>1234</password>
+    <password>123</password>
     <port>5432</port>
 </database>

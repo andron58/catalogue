@@ -60,6 +60,13 @@ static bool createConnection(QString& host, int& port, QString& dataBaseName,
         QMessageBox::warning(0, "Database Error", db.lastError().text());
         return false;
     }
+	else
+	{
+		QMessageBox msgBox;
+		msgBox.setText("Соединение успешно установлено");
+		msgBox.exec();
+	}
+
     return true;
 
 }
