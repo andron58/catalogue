@@ -2,6 +2,7 @@
 #include "ui_preferencesdialog.h"
 #include "QtGui"
 #include "connection.h"
+#include <QCryptographicHash>
 
 PreferencesDialog::PreferencesDialog(QWidget *parent) :
     QDialog(parent),
@@ -24,7 +25,7 @@ void PreferencesDialog::writeXML(const QString &fileName)
     {
        // return;
     }
-
+	
     QXmlStreamWriter xmlWriter(&file);
     xmlWriter.setAutoFormatting(true);
     xmlWriter.writeStartDocument();

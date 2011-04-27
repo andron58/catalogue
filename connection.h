@@ -7,7 +7,7 @@
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlError>
 
-/*static void connectionParametrs(QString& host, int& port, QString& dataBaseName,
+static void connectionParametrs(QString& host, int& port, QString& dataBaseName,
                   QString& userName, QString& password)
 {
     QFile *file = new QFile("preferences.xml");
@@ -35,7 +35,7 @@
     port = xmlReader.readElementText().toInt();
 
     file->close();
-}*/
+}
 
 static bool createConnection(QString& host, int& port, QString& dataBaseName,
                              QString& userName, QString& password)
@@ -45,8 +45,8 @@ static bool createConnection(QString& host, int& port, QString& dataBaseName,
             userName = "postgres", password = "1";*/
 
     //int port = 5432;
-   // connectionParametrs(host, port, dataBaseName, userName, password);
-
+   connectionParametrs(host, port, dataBaseName, userName, password);
+	
     QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
     db.setHostName(host);
     db.setDatabaseName(dataBaseName);

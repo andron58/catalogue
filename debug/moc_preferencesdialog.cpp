@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'preferencesdialog.h'
 **
-** Created: Mon 25. Apr 21:11:44 2011
+** Created: Wed 27. Apr 08:30:17 2011
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.2)
 **
 ** WARNING! All changes made in this file will be lost!
