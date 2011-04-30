@@ -2,6 +2,7 @@
 #define PREFERENCESDIALOG_H
 
 #include <QDialog>
+#include "dbwork.h"
 
 namespace Ui {
     class PreferencesDialog;
@@ -26,6 +27,9 @@ private:
     void readXML (const QString &fileName);
     void loadPreferences();
     void savePreferences();
+DBwork dbw;
+
+
 
 };
 

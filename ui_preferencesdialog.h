@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'preferencesdialog.ui'
 **
-** Created: Wed 27. Apr 16:37:27 2011
+** Created: Sat 30. Apr 11:00:29 2011
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -37,6 +37,7 @@ public:
     QLineEdit *portEdit;
     QPushButton *connectButton;
     QPushButton *pushButton;
+    QPushButton *pushButton_2;
 
     void setupUi(QDialog *PreferencesDialog)
     {
@@ -79,8 +80,12 @@ public:
         pushButton = new QPushButton(PreferencesDialog);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(64, 240, 141, 23));
+        pushButton_2 = new QPushButton(PreferencesDialog);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setGeometry(QRect(260, 270, 75, 23));
 
         retranslateUi(PreferencesDialog);
+        QObject::connect(pushButton_2, SIGNAL(clicked()), PreferencesDialog, SLOT(accept()));
 
         QMetaObject::connectSlotsByName(PreferencesDialog);
     } // setupUi
@@ -95,6 +100,7 @@ public:
         label_5->setText(QApplication::translate("PreferencesDialog", "\320\237\320\276\321\200\321\202", 0, QApplication::UnicodeUTF8));
         connectButton->setText(QApplication::translate("PreferencesDialog", "\320\241\320\276\320\265\320\264\320\270\320\275\320\270\321\202\321\214", 0, QApplication::UnicodeUTF8));
         pushButton->setText(QApplication::translate("PreferencesDialog", "\320\241\320\276\321\205\321\200\320\260\320\275\320\270\321\202\321\214 \320\275\320\260\321\201\321\202\321\200\320\276\320\271\320\272\320\270", 0, QApplication::UnicodeUTF8));
+        pushButton_2->setText(QApplication::translate("PreferencesDialog", "Diconnect", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

@@ -4,6 +4,7 @@
 	Version="9,00"
 	Name="catalogue"
 	ProjectGUID="{E5642717-A1A3-302F-9339-25DF35B415BD}"
+	RootNamespace="catalogue"
 	Keyword="Qt4VSv1.0"
 	TargetFrameworkVersion="0"
 	>
@@ -45,7 +46,7 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="-Zm200 -w34100 -w34189"
 				Optimization="4"
-				AdditionalIncludeDirectories="&quot;c:\Qt\4.7.2\include\QtCore&quot;,&quot;c:\Qt\4.7.2\include\QtGui&quot;,&quot;c:\Qt\4.7.2\include\QtSql&quot;,&quot;c:\Qt\4.7.2\include&quot;,&quot;c:\pgsql\include&quot;,&quot;c:\Qt\4.7.2\include\ActiveQt&quot;,&quot;debug&quot;,&quot;.&quot;,c:\Qt\4.7.2\mkspecs\win32-msvc2008"
+				AdditionalIncludeDirectories="&quot;$(QTDIR)\include\QtCore&quot;;&quot;$(QTDIR)\include\QtGui&quot;;&quot;$(QTDIR)\include\QtSql&quot;;&quot;$(QTDIR)\include&quot;;c:\pgsql\include;&quot;$(QTDIR)\include\ActiveQt&quot;;&quot;debug&quot;;&quot;.&quot;;&quot;$(QTDIR)\mkspecs\win32-msvc2008&quot;"
 				PreprocessorDefinitions="_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_SQL_LIB,QT_GUI_LIB,QT_CORE_LIB,QT_HAVE_MMX,QT_HAVE_3DNOW,QT_HAVE_SSE,QT_HAVE_MMXEXT,QT_HAVE_SSE2,QT_THREAD_SUPPORT"
 				GeneratePreprocessedFile="0"
 				ExceptionHandling="1"
@@ -77,7 +78,7 @@
 				AdditionalDependencies="qtmaind.lib C:/pgsql/lib/libpq.lib QtSqld4.lib QtGuid4.lib QtCored4.lib"
 				OutputFile="debug\catalogue.exe"
 				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="c:\Qt\4.7.2\lib"
+				AdditionalLibraryDirectories="&quot;$(QTDIR)\lib&quot;"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile=""
 				SubSystem="2"
@@ -135,7 +136,7 @@
 				Name="VCCLCompilerTool"
 				AdditionalOptions="-Zm200 -w34100 -w34189"
 				Optimization="2"
-				AdditionalIncludeDirectories="&quot;c:\Qt\4.7.2\include\QtCore&quot;,&quot;c:\Qt\4.7.2\include\QtGui&quot;,&quot;c:\Qt\4.7.2\include\QtSql&quot;,&quot;c:\Qt\4.7.2\include&quot;,&quot;c:\pgsql\include&quot;,&quot;c:\Qt\4.7.2\include\ActiveQt&quot;,&quot;release&quot;,&quot;.&quot;,c:\Qt\4.7.2\mkspecs\win32-msvc2008"
+				AdditionalIncludeDirectories="&quot;$(QTDIR)\include\QtCore&quot;;&quot;$(QTDIR)\include\QtGui&quot;;&quot;$(QTDIR)\include\QtSql&quot;;&quot;$(QTDIR)\include&quot;;c:\pgsql\include;&quot;$(QTDIR)\include\ActiveQt&quot;;&quot;release&quot;;&quot;.&quot;;&quot;$(QTDIR)\mkspecs\win32-msvc2008&quot;"
 				PreprocessorDefinitions="QT_NO_DEBUG,NDEBUG,_WINDOWS,UNICODE,WIN32,QT_LARGEFILE_SUPPORT,QT_DLL,QT_NO_DEBUG,QT_SQL_LIB,QT_GUI_LIB,QT_CORE_LIB,QT_HAVE_MMX,QT_HAVE_3DNOW,QT_HAVE_SSE,QT_HAVE_MMXEXT,QT_HAVE_SSE2,QT_THREAD_SUPPORT,NDEBUG"
 				GeneratePreprocessedFile="0"
 				ExceptionHandling="1"
@@ -168,7 +169,7 @@
 				OutputFile="release\catalogue.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="c:\Qt\4.7.2\lib"
+				AdditionalLibraryDirectories="&quot;$(QTDIR)\lib&quot;"
 				GenerateDebugInformation="false"
 				ProgramDatabaseFile=""
 				SubSystem="2"
@@ -205,6 +206,14 @@
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
+			<File
+				RelativePath=".\dbwork.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\loginform.cpp"
+				>
+			</File>
 			<File
 				RelativePath="main.cpp"
 				>
@@ -250,7 +259,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="mainwindow.h"
+				RelativePath=".\dbwork.h"
 				>
 				<FileConfiguration
 					Name="Debug|Win32"
@@ -258,7 +267,7 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Moc&apos;ing $(InputFileName)..."
-						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;$(ConfigurationName)\moc_$(InputName).cpp&quot;  -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_SQL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT &quot;-Ic:\Qt\4.7.2\include\QtCore&quot; &quot;-Ic:\Qt\4.7.2\include\QtGui&quot; &quot;-Ic:\Qt\4.7.2\include\QtSql&quot; &quot;-Ic:\Qt\4.7.2\include&quot; &quot;-Ic:\pgsql\include&quot; &quot;-Ic:\Qt\4.7.2\include\ActiveQt&quot; &quot;-I.\debug&quot; &quot;-I.&quot; &quot;-Ic:\Qt\4.7.2\mkspecs\win32-msvc2008&quot;&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;$(ConfigurationName)\moc_$(InputName).cpp&quot;  -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_SQL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtSql&quot; &quot;-I$(QTDIR)\include&quot; &quot;-Ic:\pgsql\include&quot; &quot;-I$(QTDIR)\include\ActiveQt&quot; &quot;-I.\debug&quot; &quot;-I.&quot; &quot;-I$(QTDIR)\mkspecs\win32-msvc2008&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 						Outputs="&quot;$(ConfigurationName)\moc_$(InputName).cpp&quot;"
 					/>
@@ -269,9 +278,61 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="Moc&apos;ing $(InputFileName)..."
-						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DQT_NO_DEBUG -DNDEBUG -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_SQL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT &quot;-Ic:\Qt\4.7.2\include\QtCore&quot; &quot;-Ic:\Qt\4.7.2\include\QtGui&quot; &quot;-Ic:\Qt\4.7.2\include\QtSql&quot; &quot;-Ic:\Qt\4.7.2\include&quot; &quot;-Ic:\pgsql\include&quot; &quot;-Ic:\Qt\4.7.2\include\ActiveQt&quot; &quot;-I.\release&quot; &quot;-I.&quot; &quot;-Ic:\Qt\4.7.2\mkspecs\win32-msvc2008&quot;&#x0D;&#x0A;"
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DQT_NO_DEBUG -DNDEBUG -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_SQL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtSql&quot; &quot;-I$(QTDIR)\include&quot; &quot;-Ic:\pgsql\include&quot; &quot;-I$(QTDIR)\include\ActiveQt&quot; &quot;-I.\release&quot; &quot;-I.&quot; &quot;-I$(QTDIR)\mkspecs\win32-msvc2008&quot;&#x0D;&#x0A;"
 						AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
 						Outputs="&quot;$(ConfigurationName)\moc_$(InputName).cpp&quot;"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\loginform.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Moc&apos;ing $(InputFileName)..."
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;$(ConfigurationName)\moc_$(InputName).cpp&quot;  -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_SQL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtSql&quot; &quot;-I$(QTDIR)\include&quot; &quot;-Ic:\pgsql\include&quot; &quot;-I$(QTDIR)\include\ActiveQt&quot; &quot;-I.\debug&quot; &quot;-I.&quot; &quot;-I$(QTDIR)\mkspecs\win32-msvc2008&quot;&#x0D;&#x0A;"
+						AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
+						Outputs="&quot;$(ConfigurationName)\moc_$(InputName).cpp&quot;"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Moc&apos;ing $(InputFileName)..."
+						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DQT_NO_DEBUG -DNDEBUG -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_SQL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT &quot;-I$(QTDIR)\include\QtCore&quot; &quot;-I$(QTDIR)\include\QtGui&quot; &quot;-I$(QTDIR)\include\QtSql&quot; &quot;-I$(QTDIR)\include&quot; &quot;-Ic:\pgsql\include&quot; &quot;-I$(QTDIR)\include\ActiveQt&quot; &quot;-I.\release&quot; &quot;-I.&quot; &quot;-I$(QTDIR)\mkspecs\win32-msvc2008&quot;&#x0D;&#x0A;"
+						AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
+						Outputs="&quot;$(ConfigurationName)\moc_$(InputName).cpp&quot;"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="mainwindow.h"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC mainwindow.h"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_SQL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtSql&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;c:\pgsql\include&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;debug&quot; -I&quot;.&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 mainwindow.h -o debug\moc_mainwindow.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe;mainwindow.h"
+						Outputs="debug\moc_mainwindow.cpp"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC mainwindow.h"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_SQL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtSql&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;c:\pgsql\include&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;release&quot; -I&quot;.&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 mainwindow.h -o release\moc_mainwindow.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe;mainwindow.h"
+						Outputs="release\moc_mainwindow.cpp"
 					/>
 				</FileConfiguration>
 			</File>
@@ -283,10 +344,10 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Moc&apos;ing $(InputFileName)..."
-						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;$(ConfigurationName)\moc_$(InputName).cpp&quot;  -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_SQL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT &quot;-Ic:\Qt\4.7.2\include\QtCore&quot; &quot;-Ic:\Qt\4.7.2\include\QtGui&quot; &quot;-Ic:\Qt\4.7.2\include\QtSql&quot; &quot;-Ic:\Qt\4.7.2\include&quot; &quot;-Ic:\pgsql\include&quot; &quot;-Ic:\Qt\4.7.2\include\ActiveQt&quot; &quot;-I.\debug&quot; &quot;-I.&quot; &quot;-Ic:\Qt\4.7.2\mkspecs\win32-msvc2008&quot;&#x0D;&#x0A;"
-						AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
-						Outputs="&quot;$(ConfigurationName)\moc_$(InputName).cpp&quot;"
+						Description="MOC preferencesdialog.h"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_SQL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtSql&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;c:\pgsql\include&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;debug&quot; -I&quot;.&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 preferencesdialog.h -o debug\moc_preferencesdialog.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe;preferencesdialog.h"
+						Outputs="debug\moc_preferencesdialog.cpp"
 					/>
 				</FileConfiguration>
 				<FileConfiguration
@@ -294,10 +355,10 @@
 					>
 					<Tool
 						Name="VCCustomBuildTool"
-						Description="Moc&apos;ing $(InputFileName)..."
-						CommandLine="&quot;$(QTDIR)\bin\moc.exe&quot;  &quot;$(InputPath)&quot; -o &quot;$(ConfigurationName)\moc_$(InputName).cpp&quot;  -DQT_NO_DEBUG -DNDEBUG -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_SQL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT &quot;-Ic:\Qt\4.7.2\include\QtCore&quot; &quot;-Ic:\Qt\4.7.2\include\QtGui&quot; &quot;-Ic:\Qt\4.7.2\include\QtSql&quot; &quot;-Ic:\Qt\4.7.2\include&quot; &quot;-Ic:\pgsql\include&quot; &quot;-Ic:\Qt\4.7.2\include\ActiveQt&quot; &quot;-I.\release&quot; &quot;-I.&quot; &quot;-Ic:\Qt\4.7.2\mkspecs\win32-msvc2008&quot;&#x0D;&#x0A;"
-						AdditionalDependencies="&quot;$(QTDIR)\bin\moc.exe&quot;;$(InputPath)"
-						Outputs="&quot;$(ConfigurationName)\moc_$(InputName).cpp&quot;"
+						Description="MOC preferencesdialog.h"
+						CommandLine="$(QTDIR)\bin\moc.exe  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_DLL -DQT_NO_DEBUG -DQT_SQL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -I&quot;$(QTDIR)\include\QtCore&quot; -I&quot;$(QTDIR)\include\QtGui&quot; -I&quot;$(QTDIR)\include\QtSql&quot; -I&quot;$(QTDIR)\include&quot; -I&quot;c:\pgsql\include&quot; -I&quot;$(QTDIR)\include\ActiveQt&quot; -I&quot;release&quot; -I&quot;.&quot; -I$(QTDIR)\mkspecs\win32-msvc2008 -D_MSC_VER=1500 -DWIN32 preferencesdialog.h -o release\moc_preferencesdialog.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\moc.exe;preferencesdialog.h"
+						Outputs="release\moc_preferencesdialog.cpp"
 					/>
 				</FileConfiguration>
 			</File>
@@ -307,6 +368,58 @@
 			Filter="cpp;c;cxx;moc;h;def;odl;idl;res;"
 			UniqueIdentifier="{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}"
 			>
+			<File
+				RelativePath="release\moc_mainwindow.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="debug\moc_mainwindow.cpp"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="release\moc_preferencesdialog.cpp"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="debug\moc_preferencesdialog.cpp"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\ui_LoginForm.h"
+				>
+			</File>
 			<File
 				RelativePath="ui_mainwindow.h"
 				>
@@ -365,7 +478,7 @@
 				SourceControlFiles="false"
 				>
 				<File
-					RelativePath=".\Debug\moc_mainwindow.cpp"
+					RelativePath=".\Debug\moc_dbwork.cpp"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -377,7 +490,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\Debug\moc_preferencesdialog.cpp"
+					RelativePath=".\Debug\moc_loginform.cpp"
 					>
 					<FileConfiguration
 						Name="Release|Win32"
@@ -395,7 +508,7 @@
 				SourceControlFiles="false"
 				>
 				<File
-					RelativePath=".\Release\moc_mainwindow.cpp"
+					RelativePath=".\Release\moc_dbwork.cpp"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -407,7 +520,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\Release\moc_preferencesdialog.cpp"
+					RelativePath=".\Release\moc_loginform.cpp"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -427,6 +540,32 @@
 			ParseFiles="false"
 			>
 			<File
+				RelativePath=".\LoginForm.ui"
+				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Uic&apos;ing $(InputFileName)..."
+						CommandLine="&quot;$(QTDIR)\bin\uic.exe&quot; -o &quot;.\ui_$(InputName).h&quot; &quot;$(InputPath)&quot;&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						Outputs="&quot;.\ui_$(InputName).h&quot;"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="Uic&apos;ing $(InputFileName)..."
+						CommandLine="&quot;$(QTDIR)\bin\uic.exe&quot; -o &quot;.\ui_$(InputName).h&quot; &quot;$(InputPath)&quot;&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe"
+						Outputs="&quot;.\ui_$(InputName).h&quot;"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath="mainwindow.ui"
 				>
 				<FileConfiguration
@@ -435,8 +574,8 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="UIC mainwindow.ui"
-						CommandLine="C:\Qt\4.7.2\bin\uic.exe mainwindow.ui -o ui_mainwindow.h&#x0D;&#x0A;"
-						AdditionalDependencies="C:\Qt\4.7.2\bin\uic.exe;mainwindow.ui"
+						CommandLine="$(QTDIR)\bin\uic.exe mainwindow.ui -o ui_mainwindow.h&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe;mainwindow.ui"
 						Outputs="ui_mainwindow.h"
 					/>
 				</FileConfiguration>
@@ -446,8 +585,8 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="UIC mainwindow.ui"
-						CommandLine="C:\Qt\4.7.2\bin\uic.exe mainwindow.ui -o ui_mainwindow.h&#x0D;&#x0A;"
-						AdditionalDependencies="C:\Qt\4.7.2\bin\uic.exe;mainwindow.ui"
+						CommandLine="$(QTDIR)\bin\uic.exe mainwindow.ui -o ui_mainwindow.h&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe;mainwindow.ui"
 						Outputs="ui_mainwindow.h"
 					/>
 				</FileConfiguration>
@@ -461,8 +600,8 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="UIC preferencesdialog.ui"
-						CommandLine="C:\Qt\4.7.2\bin\uic.exe preferencesdialog.ui -o ui_preferencesdialog.h&#x0D;&#x0A;"
-						AdditionalDependencies="C:\Qt\4.7.2\bin\uic.exe;preferencesdialog.ui"
+						CommandLine="$(QTDIR)\bin\uic.exe preferencesdialog.ui -o ui_preferencesdialog.h&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe;preferencesdialog.ui"
 						Outputs="ui_preferencesdialog.h"
 					/>
 				</FileConfiguration>
@@ -472,8 +611,8 @@
 					<Tool
 						Name="VCCustomBuildTool"
 						Description="UIC preferencesdialog.ui"
-						CommandLine="C:\Qt\4.7.2\bin\uic.exe preferencesdialog.ui -o ui_preferencesdialog.h&#x0D;&#x0A;"
-						AdditionalDependencies="C:\Qt\4.7.2\bin\uic.exe;preferencesdialog.ui"
+						CommandLine="$(QTDIR)\bin\uic.exe preferencesdialog.ui -o ui_preferencesdialog.h&#x0D;&#x0A;"
+						AdditionalDependencies="$(QTDIR)\bin\uic.exe;preferencesdialog.ui"
 						Outputs="ui_preferencesdialog.h"
 					/>
 				</FileConfiguration>
@@ -484,10 +623,6 @@
 		<Global
 			Name="QtVersion Win32"
 			Value="4.7.2"
-		/>
-		<Global
-			Name="RccDir"
-			Value=".\GeneratedFiles"
 		/>
 	</Globals>
 </VisualStudioProject>

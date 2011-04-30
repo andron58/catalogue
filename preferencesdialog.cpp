@@ -1,7 +1,8 @@
 #include "preferencesdialog.h"
 #include "ui_preferencesdialog.h"
 #include "QtGui"
-#include "connection.h"
+//#include "connection.h"
+#include "dbwork.h"
 #include <QCryptographicHash>
 
 PreferencesDialog::PreferencesDialog(QWidget *parent) :
@@ -83,15 +84,14 @@ void PreferencesDialog::on_pushButton_clicked()
 {
     savePreferences();
 }
-
 void PreferencesDialog::on_connectButton_clicked()
 {
-    QString host , dataBaseName, userName, password;
+	QString host , dataBaseName, userName, password;
     int port;
     host=ui->IPEdit->text();
     port=ui->IPEdit->text().toInt();
     dataBaseName=ui->dbNameEdit->text();
     userName=ui->userNameEdit->text();
     password=ui->passEdit->text();
-    createConnection(host,port,dataBaseName,userName,password);
+    dbw.createConnection(host,port,dataBaseName,userName,password);
 }
