@@ -1,5 +1,5 @@
 /********************************************************************************
-** Form generated from reading UI file 'addform.ui'
+** Form generated from reading UI file 'viewdialog.ui'
 **
 ** Created: Mon 2. May 18:24:38 2011
 **      by: Qt User Interface Compiler version 4.7.2
@@ -7,8 +7,8 @@
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_ADDFORM_H
-#define UI_ADDFORM_H
+#ifndef UI_VIEWDIALOG_H
+#define UI_VIEWDIALOG_H
 
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
@@ -19,32 +19,32 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_AddForm
+class Ui_ViewDialog
 {
 public:
 
-    void setupUi(QDialog *AddForm)
+    void setupUi(QDialog *ViewDialog)
     {
-        if (AddForm->objectName().isEmpty())
-            AddForm->setObjectName(QString::fromUtf8("AddForm"));
-        AddForm->resize(400, 300);
+        if (ViewDialog->objectName().isEmpty())
+            ViewDialog->setObjectName(QString::fromUtf8("ViewDialog"));
+        ViewDialog->resize(400, 300);
 
-        retranslateUi(AddForm);
+        retranslateUi(ViewDialog);
 
-        QMetaObject::connectSlotsByName(AddForm);
+        QMetaObject::connectSlotsByName(ViewDialog);
     } // setupUi
 
-    void retranslateUi(QDialog *AddForm)
+    void retranslateUi(QDialog *ViewDialog)
     {
-        AddForm->setWindowTitle(QApplication::translate("AddForm", "AddForm", 0, QApplication::UnicodeUTF8));
+        ViewDialog->setWindowTitle(QApplication::translate("ViewDialog", "ViewDialog", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class AddForm: public Ui_AddForm {};
+    class ViewDialog: public Ui_ViewDialog {};
 } // namespace Ui
 
 QT_END_NAMESPACE
 
-#endif // UI_ADDFORM_H
+#endif // UI_VIEWDIALOG_H
