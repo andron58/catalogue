@@ -8,6 +8,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+	QSqlQuery query;
+
+	query.exec("SELECT * FROM public.subject");
+
+	while (query.next())
+	{
+		ui->comboBox->addItem(query.value(1).toString());
+	}
 }
 
 MainWindow::~MainWindow()

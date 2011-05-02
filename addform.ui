@@ -86,7 +86,7 @@
        </widget>
       </item>
       <item row="3" column="1" colspan="2">
-       <widget class="QComboBox" name="SubjectcomboBox_2"/>
+       <widget class="QComboBox" name="TypecomboBox"/>
       </item>
       <item row="4" column="0">
        <widget class="QLabel" name="label_5">
@@ -189,7 +189,7 @@
   <tabstop>KurscomboBox</tabstop>
   <tabstop>SemcomboBox</tabstop>
   <tabstop>SubjectcomboBox</tabstop>
-  <tabstop>SubjectcomboBox_2</tabstop>
+  <tabstop>TypecomboBox</tabstop>
   <tabstop>AuthorEdit</tabstop>
   <tabstop>NameEdit</tabstop>
   <tabstop>IzdatEdit</tabstop>
@@ -236,9 +236,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>SemcomboBox</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>AddForm</receiver>
+   <slot>on_SemCombobox_select()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>68</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>220</x>
+     <y>15</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>on_addButton_clicked()</slot>
   <slot>on_KursCombobox_select()</slot>
+  <slot>on_SemCombobox_select()</slot>
  </slots>
 </ui>

@@ -1,11 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'addform.ui'
 **
-<<<<<<< HEAD
-** Created: Mon 2. May 19:35:52 2011
-=======
-** Created: Mon 2. May 18:24:38 2011
->>>>>>> 9582de7dd1fbeb67b42e1f15dd1de2740506d43e
+** Created: Mon 2. May 21:33:00 2011
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -47,7 +43,7 @@ public:
     QLabel *label;
     QComboBox *SubjectcomboBox;
     QLabel *label_4;
-    QComboBox *SubjectcomboBox_2;
+    QComboBox *TypecomboBox;
     QLabel *label_5;
     QLineEdit *AuthorEdit;
     QLabel *label_7;
@@ -133,10 +129,10 @@ public:
 
         gridLayout->addWidget(label_4, 3, 0, 1, 1);
 
-        SubjectcomboBox_2 = new QComboBox(layoutWidget);
-        SubjectcomboBox_2->setObjectName(QString::fromUtf8("SubjectcomboBox_2"));
+        TypecomboBox = new QComboBox(layoutWidget);
+        TypecomboBox->setObjectName(QString::fromUtf8("TypecomboBox"));
 
-        gridLayout->addWidget(SubjectcomboBox_2, 3, 1, 1, 2);
+        gridLayout->addWidget(TypecomboBox, 3, 1, 1, 2);
 
         label_5 = new QLabel(layoutWidget);
         label_5->setObjectName(QString::fromUtf8("label_5"));
@@ -228,8 +224,8 @@ public:
 
         QWidget::setTabOrder(KurscomboBox, SemcomboBox);
         QWidget::setTabOrder(SemcomboBox, SubjectcomboBox);
-        QWidget::setTabOrder(SubjectcomboBox, SubjectcomboBox_2);
-        QWidget::setTabOrder(SubjectcomboBox_2, AuthorEdit);
+        QWidget::setTabOrder(SubjectcomboBox, TypecomboBox);
+        QWidget::setTabOrder(TypecomboBox, AuthorEdit);
         QWidget::setTabOrder(AuthorEdit, NameEdit);
         QWidget::setTabOrder(NameEdit, IzdatEdit);
         QWidget::setTabOrder(IzdatEdit, plainTextEdit);
@@ -243,6 +239,8 @@ public:
 
         retranslateUi(AddForm);
         QObject::connect(AddButton, SIGNAL(clicked()), AddForm, SLOT(on_addButton_clicked()));
+        QObject::connect(KurscomboBox, SIGNAL(currentIndexChanged(QString)), AddForm, SLOT(on_KursCombobox_select()));
+        QObject::connect(SemcomboBox, SIGNAL(currentIndexChanged(QString)), AddForm, SLOT(on_SemCombobox_select()));
 
         QMetaObject::connectSlotsByName(AddForm);
     } // setupUi
