@@ -1,7 +1,11 @@
 /********************************************************************************
 ** Form generated from reading UI file 'addform.ui'
 **
+<<<<<<< HEAD
 ** Created: Mon 2. May 19:35:52 2011
+=======
+** Created: Mon 2. May 18:24:38 2011
+>>>>>>> 9582de7dd1fbeb67b42e1f15dd1de2740506d43e
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
