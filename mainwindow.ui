@@ -26,7 +26,7 @@
     <property name="title">
      <string/>
     </property>
-    <widget class="QComboBox" name="comboBox">
+    <widget class="QComboBox" name="discipComboBox">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -62,7 +62,7 @@
       <string>Вид издания</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox_2">
+    <widget class="QComboBox" name="izdComboBox">
      <property name="geometry">
       <rect>
        <x>200</x>
@@ -146,13 +146,23 @@
     <property name="geometry">
      <rect>
       <x>730</x>
-      <y>10</y>
+      <y>40</y>
       <width>361</width>
-      <height>531</height>
+      <height>501</height>
      </rect>
     </property>
     <property name="title">
      <string/>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>10</y>
+      <width>361</width>
+      <height>22</height>
+     </rect>
     </property>
    </widget>
   </widget>
@@ -232,8 +242,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>searchButton_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>691</x>
+     <y>75</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>706</x>
+     <y>38</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>on_additem_clicked()</slot>
+  <slot>searchButton_clicked()</slot>
  </slots>
 </ui>
