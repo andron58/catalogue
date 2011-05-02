@@ -14,12 +14,14 @@ LoginForm::~LoginForm()
 void LoginForm::on_LoginButton_clicked()
 {
 	//здесь проверка имени и пароля проверка имени и пароля
-	MainWindow mainw;
+	//MainWindow mainw;
 	QString host , dataBaseName, userName, password;
 	int port;
 	dbw.connectionParametrs(host, port, dataBaseName, userName, password);
 	dbw.createConnection(host,port,dataBaseName,userName,password);
 	accept();
+	//ViewDialog view;
+	//view.exec();
 }
 
 void LoginForm::on_PrefButton_clicked()

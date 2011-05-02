@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QDialog>
+#include <QSqlQuery>
 
 namespace Ui {
     class MainWindow;
@@ -15,8 +16,10 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+	QSqlQuery sql;
 
 private slots:
+	void searchButton_clicked();
     void on_action_activated();
 	void on_additem_clicked();
 

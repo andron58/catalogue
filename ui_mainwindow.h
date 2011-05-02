@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Mon 2. May 19:32:34 2011
+** Created: Mon 2. May 21:01:40 2011
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -38,10 +38,10 @@ public:
     QAction *action_4;
     QWidget *centralWidget;
     QGroupBox *groupBox;
-    QComboBox *comboBox;
+    QComboBox *discipComboBox;
     QLabel *label;
     QLabel *label_2;
-    QComboBox *comboBox_2;
+    QComboBox *izdComboBox;
     QTableView *tableView;
     QLineEdit *lineEdit;
     QLineEdit *lineEdit_2;
@@ -49,6 +49,7 @@ public:
     QLabel *label_4;
     QPushButton *pushButton;
     QGroupBox *groupBox_2;
+    QComboBox *comboBox;
     QMenuBar *menuBar;
     QMenu *menu;
     QMenu *menu_3;
@@ -72,18 +73,18 @@ public:
         groupBox = new QGroupBox(centralWidget);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
         groupBox->setGeometry(QRect(10, 10, 711, 531));
-        comboBox = new QComboBox(groupBox);
-        comboBox->setObjectName(QString::fromUtf8("comboBox"));
-        comboBox->setGeometry(QRect(10, 20, 181, 22));
+        discipComboBox = new QComboBox(groupBox);
+        discipComboBox->setObjectName(QString::fromUtf8("discipComboBox"));
+        discipComboBox->setGeometry(QRect(10, 20, 181, 22));
         label = new QLabel(groupBox);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(10, 0, 71, 16));
         label_2 = new QLabel(groupBox);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setGeometry(QRect(200, 0, 71, 16));
-        comboBox_2 = new QComboBox(groupBox);
-        comboBox_2->setObjectName(QString::fromUtf8("comboBox_2"));
-        comboBox_2->setGeometry(QRect(200, 20, 181, 22));
+        izdComboBox = new QComboBox(groupBox);
+        izdComboBox->setObjectName(QString::fromUtf8("izdComboBox"));
+        izdComboBox->setGeometry(QRect(200, 20, 181, 22));
         tableView = new QTableView(groupBox);
         tableView->setObjectName(QString::fromUtf8("tableView"));
         tableView->setGeometry(QRect(10, 51, 691, 471));
@@ -104,7 +105,10 @@ public:
         pushButton->setGeometry(QRect(630, 20, 75, 23));
         groupBox_2 = new QGroupBox(centralWidget);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(730, 10, 361, 531));
+        groupBox_2->setGeometry(QRect(730, 40, 361, 501));
+        comboBox = new QComboBox(centralWidget);
+        comboBox->setObjectName(QString::fromUtf8("comboBox"));
+        comboBox->setGeometry(QRect(730, 10, 361, 22));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -133,6 +137,7 @@ public:
 
         retranslateUi(MainWindow);
         QObject::connect(action_3, SIGNAL(activated()), MainWindow, SLOT(on_additem_clicked()));
+        QObject::connect(pushButton, SIGNAL(clicked()), MainWindow, SLOT(searchButton_clicked()));
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi

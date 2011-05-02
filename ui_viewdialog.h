@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'viewdialog.ui'
 **
-** Created: Mon 2. May 18:24:38 2011
+** Created: Mon 2. May 20:31:26 2011
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
