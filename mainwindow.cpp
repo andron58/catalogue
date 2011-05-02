@@ -2,14 +2,14 @@
 #include "ui_mainwindow.h"
 #include "preferencesdialog.h"
 #include "addform.h"
-#include "dbwork.h"
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+	
 	if (!sql.exec("SELECT * from public.subject"))
 	{
 		//ошибка запроса
@@ -21,7 +21,6 @@ MainWindow::MainWindow(QWidget *parent) :
 		ui->discipComboBox->addItem(sql.value(1).toString());
 	}
 
-	//ui->discipComboBox->addItem("opopop");
 }
 
 MainWindow::~MainWindow()
