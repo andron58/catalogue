@@ -3,6 +3,10 @@
 
 #include <QDialog>
 #include "ui_addform.h"
+#include "dbwork.h"
+#include <QSqlQuery>
+
+
 
 class AddForm : public QDialog
 {
@@ -11,6 +15,11 @@ class AddForm : public QDialog
 public:
 	AddForm(QWidget *parent = 0);
 	~AddForm();
+	QSqlQuery sqlquery;
+
+	private slots:
+		void on_addButton_clicked();
+		void on_KursCombobox_select();
 
 private:
 	Ui::AddForm ui;

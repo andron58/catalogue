@@ -7,6 +7,7 @@
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlError>
 
+
 class DBwork : public QObject
 {
 	Q_OBJECT

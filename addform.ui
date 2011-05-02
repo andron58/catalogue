@@ -1,23 +1,244 @@
-<UI version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>AddForm</class>
- <widget class="QDialog" name="AddForm" >
-  <property name="objectName" >
-   <string notr="true">AddForm</string>
-  </property>
-  <property name="geometry" >
+ <widget class="QDialog" name="AddForm">
+  <property name="geometry">
    <rect>
-	<x>0</x>
-	<y>0</y>
-	<width>400</width>
-	<height>300</height>
+    <x>0</x>
+    <y>0</y>
+    <width>442</width>
+    <height>563</height>
    </rect>
   </property>
-  <property name="windowTitle" >
-   <string>AddForm</string>
-  </property>  
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Добавление новой записи</string>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>16</x>
+     <y>27</y>
+     <width>408</width>
+     <height>508</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="2" column="0">
+     <widget class="QPushButton" name="AddButton">
+      <property name="text">
+       <string>Добавить</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QPushButton" name="ClearButton">
+      <property name="text">
+       <string>Очистить</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="2">
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Курс:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1" colspan="2">
+       <widget class="QComboBox" name="KurscomboBox"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Семестр:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1" colspan="2">
+       <widget class="QComboBox" name="SemcomboBox"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Предмет:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1" colspan="2">
+       <widget class="QComboBox" name="SubjectcomboBox"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>Тип:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1" colspan="2">
+       <widget class="QComboBox" name="SubjectcomboBox_2"/>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>Автор:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2">
+       <widget class="QLineEdit" name="AuthorEdit"/>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>Навание:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="2">
+       <widget class="QLineEdit" name="NameEdit"/>
+      </item>
+      <item row="6" column="0" colspan="2">
+       <widget class="QLabel" name="label_8">
+        <property name="text">
+         <string>Издательство:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="2">
+       <widget class="QLineEdit" name="IzdatEdit"/>
+      </item>
+      <item row="7" column="0" colspan="2">
+       <widget class="QLabel" name="label_9">
+        <property name="text">
+         <string>Описание:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="2">
+       <widget class="QPlainTextEdit" name="plainTextEdit"/>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLabel" name="label_12">
+        <property name="text">
+         <string>Год:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="2">
+       <widget class="QLineEdit" name="YearEdit"/>
+      </item>
+      <item row="9" column="0" colspan="2">
+       <widget class="QLabel" name="label_10">
+        <property name="text">
+         <string>Путь к файлу:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="2">
+       <widget class="QLineEdit" name="FilepathEdit"/>
+      </item>
+      <item row="9" column="3">
+       <widget class="QToolButton" name="FiletoolButton">
+        <property name="text">
+         <string>...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="0" colspan="2">
+       <widget class="QLabel" name="label_11">
+        <property name="text">
+         <string>Путь к изображению:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="2">
+       <widget class="QLineEdit" name="ImagepathEdit"/>
+      </item>
+      <item row="11" column="3">
+       <widget class="QToolButton" name="ImagetoolButton">
+        <property name="text">
+         <string>...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="0">
+       <widget class="QCheckBox" name="checkBox">
+        <property name="text">
+         <string>Доступно всем</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
+ <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>KurscomboBox</tabstop>
+  <tabstop>SemcomboBox</tabstop>
+  <tabstop>SubjectcomboBox</tabstop>
+  <tabstop>SubjectcomboBox_2</tabstop>
+  <tabstop>AuthorEdit</tabstop>
+  <tabstop>NameEdit</tabstop>
+  <tabstop>IzdatEdit</tabstop>
+  <tabstop>plainTextEdit</tabstop>
+  <tabstop>YearEdit</tabstop>
+  <tabstop>FilepathEdit</tabstop>
+  <tabstop>FiletoolButton</tabstop>
+  <tabstop>ImagepathEdit</tabstop>
+  <tabstop>ImagetoolButton</tabstop>
+  <tabstop>AddButton</tabstop>
+  <tabstop>ClearButton</tabstop>
+ </tabstops>
  <resources/>
- <connections/>
-</UI>
+ <connections>
+  <connection>
+   <sender>AddButton</sender>
+   <signal>clicked()</signal>
+   <receiver>AddForm</receiver>
+   <slot>on_addButton_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>179</x>
+     <y>529</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>177</x>
+     <y>549</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>KurscomboBox</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>AddForm</receiver>
+   <slot>on_KursCombobox_select()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>163</x>
+     <y>38</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>90</x>
+     <y>13</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>on_addButton_clicked()</slot>
+  <slot>on_KursCombobox_select()</slot>
+ </slots>
+</ui>
