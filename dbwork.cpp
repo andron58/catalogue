@@ -50,7 +50,7 @@ bool DBwork::createConnection(QString& host, int& port, QString& dataBaseName,
             userName = "postgres", password = "1";*/
 
     //int port = 5432;
-   //connectionParametrs(host, port, dataBaseName, userName, password);
+   connectionParametrs(host, port, dataBaseName, userName, password);
 	
     QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
     db.setHostName(host);

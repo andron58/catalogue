@@ -27,6 +27,14 @@
     <property name="title">
      <string>Файл</string>
     </property>
+    <widget class="QMenu" name="menu_3">
+     <property name="title">
+      <string>Запись</string>
+     </property>
+     <addaction name="action_3"/>
+     <addaction name="action_4"/>
+    </widget>
+    <addaction name="menu_3"/>
    </widget>
    <widget class="QMenu" name="menu_2">
     <property name="title">
@@ -44,6 +52,7 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="separator"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="action">
@@ -51,8 +60,38 @@
     <string>Соединение</string>
    </property>
   </action>
+  <action name="action_3">
+   <property name="text">
+    <string>Создать</string>
+   </property>
+  </action>
+  <action name="action_4">
+   <property name="text">
+    <string>Редактировать</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>action_3</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_additem_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>on_additem_clicked()</slot>
+ </slots>
 </ui>

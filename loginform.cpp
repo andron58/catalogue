@@ -13,20 +13,13 @@ LoginForm::~LoginForm()
 }
 void LoginForm::on_LoginButton_clicked()
 {
-	//проверка имени и пароля
+	//здесь проверка имени и пароля проверка имени и пароля
 	MainWindow mainw;
-//	LoginForm lgform;
 	QString host , dataBaseName, userName, password;
-	int port = 5432;
-	host="95.83.65.235";
-	dataBaseName="catalog";
-	userName="andron58";
-	password="123";
-dbw.createConnection(host,port,dataBaseName,userName,password);
-//lgform.close();
-accept();
-//mainw.exec();
-
+	int port;
+	dbw.connectionParametrs(host, port, dataBaseName, userName, password);
+	dbw.createConnection(host,port,dataBaseName,userName,password);
+	accept();
 }
 
 void LoginForm::on_PrefButton_clicked()

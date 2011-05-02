@@ -18,6 +18,7 @@ public:
 
 private slots:
     void on_action_activated();
+	void on_additem_clicked();
 
 private:
     Ui::MainWindow *ui;
