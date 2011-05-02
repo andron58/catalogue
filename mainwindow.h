@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QDialog>
 #include <QSqlQuery>
+#include "dbwork.h"
 
 namespace Ui {
     class MainWindow;
@@ -16,7 +17,6 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-	QSqlQuery sql;
 
 private slots:
 	void searchButton_clicked();
@@ -25,6 +25,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+	DBwork dbw;
 };
 
 #endif // MAINWINDOW_H

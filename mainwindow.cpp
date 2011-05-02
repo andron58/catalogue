@@ -2,13 +2,19 @@
 #include "ui_mainwindow.h"
 #include "preferencesdialog.h"
 #include "addform.h"
-#include "dbwork.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+	QString host , dataBaseName, userName, password;
+	int port;
+	dbw.connectionParametrs(host, port, dataBaseName, userName, password);
+	dbw.createConnection(host,port,dataBaseName,userName,password);
+
+	QSqlQuery sql;
 
 	if (!sql.exec("SELECT * from public.subject"))
 	{
