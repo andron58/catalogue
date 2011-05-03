@@ -397,6 +397,10 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\resource.h"
+				>
+			</File>
+			<File
 				RelativePath=".\viewdialog.h"
 				>
 				<FileConfiguration
@@ -429,18 +433,6 @@
 			UniqueIdentifier="{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}"
 			>
 			<File
-				RelativePath="debug\moc_mainwindow.cpp"
-				>
-				<FileConfiguration
-					Name="Release|Win32"
-					ExcludedFromBuild="true"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-					/>
-				</FileConfiguration>
-			</File>
-			<File
 				RelativePath="release\moc_mainwindow.cpp"
 				>
 				<FileConfiguration
@@ -453,7 +445,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="debug\moc_preferencesdialog.cpp"
+				RelativePath="debug\moc_mainwindow.cpp"
 				>
 				<FileConfiguration
 					Name="Release|Win32"
@@ -469,6 +461,18 @@
 				>
 				<FileConfiguration
 					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="debug\moc_preferencesdialog.cpp"
+				>
+				<FileConfiguration
+					Name="Release|Win32"
 					ExcludedFromBuild="true"
 					>
 					<Tool

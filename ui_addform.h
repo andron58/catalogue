@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'addform.ui'
 **
-** Created: Tue 3. May 01:56:19 2011
+** Created: Tue 3. May 20:01:23 2011
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -203,6 +203,7 @@ public:
 
         checkBox = new QCheckBox(layoutWidget);
         checkBox->setObjectName(QString::fromUtf8("checkBox"));
+        checkBox->setChecked(true);
 
         gridLayout->addWidget(checkBox, 13, 0, 1, 1);
 
@@ -230,13 +231,15 @@ public:
         QWidget::setTabOrder(TypecomboBox, AuthorEdit);
         QWidget::setTabOrder(AuthorEdit, NameEdit);
         QWidget::setTabOrder(NameEdit, IzdatEdit);
-        QWidget::setTabOrder(IzdatEdit, YearEdit);
+        QWidget::setTabOrder(IzdatEdit, DeskEdit);
+        QWidget::setTabOrder(DeskEdit, YearEdit);
         QWidget::setTabOrder(YearEdit, FilepathEdit);
-        QWidget::setTabOrder(FilepathEdit, FiletoolButton);
-        QWidget::setTabOrder(FiletoolButton, ImagepathEdit);
-        QWidget::setTabOrder(ImagepathEdit, ImagetoolButton);
-        QWidget::setTabOrder(ImagetoolButton, AddButton);
+        QWidget::setTabOrder(FilepathEdit, ImagepathEdit);
+        QWidget::setTabOrder(ImagepathEdit, checkBox);
+        QWidget::setTabOrder(checkBox, AddButton);
         QWidget::setTabOrder(AddButton, ClearButton);
+        QWidget::setTabOrder(ClearButton, FiletoolButton);
+        QWidget::setTabOrder(FiletoolButton, ImagetoolButton);
 
         retranslateUi(AddForm);
         QObject::connect(AddButton, SIGNAL(clicked()), AddForm, SLOT(on_addButton_clicked()));
@@ -246,6 +249,7 @@ public:
         QObject::connect(FiletoolButton, SIGNAL(clicked()), AddForm, SLOT(on_OpenFileButton_clicked()));
         QObject::connect(ImagetoolButton, SIGNAL(clicked()), AddForm, SLOT(on_OpenImageButton_clicked()));
         QObject::connect(TypecomboBox, SIGNAL(currentIndexChanged(QString)), AddForm, SLOT(on_TypeCombobox_select()));
+        QObject::connect(ClearButton, SIGNAL(clicked()), AddForm, SLOT(on_ClearButton_clicked()));
 
         QMetaObject::connectSlotsByName(AddForm);
     } // setupUi
@@ -259,8 +263,8 @@ public:
         label_3->setText(QApplication::translate("AddForm", "\320\241\320\265\320\274\320\265\321\201\321\202\321\200:", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("AddForm", "\320\237\321\200\320\265\320\264\320\274\320\265\321\202:", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("AddForm", "\320\242\320\270\320\277:", 0, QApplication::UnicodeUTF8));
-        label_5->setText(QApplication::translate("AddForm", "\320\220\320\262\321\202\320\276\321\200:", 0, QApplication::UnicodeUTF8));
-        label_7->setText(QApplication::translate("AddForm", "\320\235\320\260\320\262\320\260\320\275\320\270\320\265:", 0, QApplication::UnicodeUTF8));
+        label_5->setText(QApplication::translate("AddForm", "\320\220\320\262\321\202\320\276\321\200: *", 0, QApplication::UnicodeUTF8));
+        label_7->setText(QApplication::translate("AddForm", "\320\235\320\260\320\267\320\262\320\260\320\275\320\270\320\265: *", 0, QApplication::UnicodeUTF8));
         label_8->setText(QApplication::translate("AddForm", "\320\230\320\267\320\264\320\260\321\202\320\265\320\273\321\214\321\201\321\202\320\262\320\276:", 0, QApplication::UnicodeUTF8));
         label_12->setText(QApplication::translate("AddForm", "\320\223\320\276\320\264:", 0, QApplication::UnicodeUTF8));
         label_10->setText(QApplication::translate("AddForm", "\320\237\321\203\321\202\321\214 \320\272 \321\204\320\260\320\271\320\273\321\203:", 0, QApplication::UnicodeUTF8));

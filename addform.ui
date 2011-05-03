@@ -103,7 +103,7 @@
       <item row="4" column="0">
        <widget class="QLabel" name="label_5">
         <property name="text">
-         <string>Автор:</string>
+         <string>Автор: *</string>
         </property>
        </widget>
       </item>
@@ -113,7 +113,7 @@
       <item row="5" column="0">
        <widget class="QLabel" name="label_7">
         <property name="text">
-         <string>Навание:</string>
+         <string>Название: *</string>
         </property>
        </widget>
       </item>
@@ -172,6 +172,9 @@
         <property name="text">
          <string>Доступно всем</string>
         </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item row="10" column="3">
@@ -205,13 +208,15 @@
   <tabstop>AuthorEdit</tabstop>
   <tabstop>NameEdit</tabstop>
   <tabstop>IzdatEdit</tabstop>
+  <tabstop>DeskEdit</tabstop>
   <tabstop>YearEdit</tabstop>
   <tabstop>FilepathEdit</tabstop>
-  <tabstop>FiletoolButton</tabstop>
   <tabstop>ImagepathEdit</tabstop>
-  <tabstop>ImagetoolButton</tabstop>
+  <tabstop>checkBox</tabstop>
   <tabstop>AddButton</tabstop>
   <tabstop>ClearButton</tabstop>
+  <tabstop>FiletoolButton</tabstop>
+  <tabstop>ImagetoolButton</tabstop>
  </tabstops>
  <resources/>
  <connections>
@@ -327,6 +332,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>ClearButton</sender>
+   <signal>clicked()</signal>
+   <receiver>AddForm</receiver>
+   <slot>on_ClearButton_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>513</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>313</x>
+     <y>498</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>on_addButton_clicked()</slot>
@@ -336,5 +357,6 @@
   <slot>on_OpenFileButton_clicked()</slot>
   <slot>on_OpenImageButton_clicked()</slot>
   <slot>on_TypeCombobox_select()</slot>
+  <slot>on_ClearButton_clicked()</slot>
  </slots>
 </ui>

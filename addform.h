@@ -7,7 +7,7 @@
 #include "dbwork.h"
 #include <QSqlQuery>
 #include <QImage>
-
+#include <QStatusBar>
 
 
 
@@ -23,6 +23,9 @@ public:
 	QImage image;
 	QByteArray BAimage;
 	QByteArray BAfile;
+	int currentid_file;
+	int currentid_image;
+	void clearform();
 
 	private slots:
 		void on_addButton_clicked();
@@ -32,10 +35,11 @@ public:
 		void on_OpenFileButton_clicked();
 		void on_OpenImageButton_clicked();
 		void on_TypeCombobox_select();
-
-
+		void on_ClearButton_clicked();
+		
 private:
 	Ui::AddForm ui;
+	void createStatusBar();
 };
 
 #endif // ADDFORM_H
