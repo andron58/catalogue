@@ -2,18 +2,13 @@
 #include "ui_mainwindow.h"
 #include "preferencesdialog.h"
 #include "addform.h"
-<<<<<<< HEAD
-=======
-
->>>>>>> 387580056e55cb28cc3757e89040cbae22c96911
+#include <QSqlRelationalTableModel>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-<<<<<<< HEAD
-
 	QString host , dataBaseName, userName, password;
 	int port;
 	dbw.connectionParametrs(host, port, dataBaseName, userName, password);
@@ -21,9 +16,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
 	QSqlQuery sql;
 
-=======
-	
->>>>>>> 387580056e55cb28cc3757e89040cbae22c96911
+	ui->discipComboBox->addItem("");
+
+
 	if (!sql.exec("SELECT * from public.subject"))
 	{
 		//ошибка запроса
@@ -36,10 +31,18 @@ MainWindow::MainWindow(QWidget *parent) :
 	}
 
 }
-
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::discip_changed()
+{
+	QSqlRelationalTableModel *model = new QSqlRelationalTableModel(ui->sqlTableView, dbw.db);
+	model->setTable("public.publication");
+	model->setFilter("id_subject="+QString::number(ui->discipComboBox->currentIndex()));
+	model->select();
+	ui->sqlTableView->setModel(model);
 }
 
 void MainWindow::searchButton_clicked()

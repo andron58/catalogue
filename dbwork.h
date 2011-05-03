@@ -13,6 +13,7 @@ class DBwork : public QObject
 	Q_OBJECT
 
 public:
+	QSqlDatabase db;
 	DBwork(QObject *parent = 0);
 	~DBwork();
 	void connectionParametrs(QString& host, int& port, QString& dataBaseName,

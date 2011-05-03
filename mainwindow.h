@@ -22,6 +22,7 @@ private slots:
 	void searchButton_clicked();
     void on_action_activated();
 	void on_additem_clicked();
+	void discip_changed();
 
 private:
     Ui::MainWindow *ui;

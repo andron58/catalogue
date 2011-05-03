@@ -7,7 +7,6 @@
 #include "dbwork.h"
 #include <QSqlQuery>
 #include <QImage>
-#include "sqlfieldblob.h"
 
 
 

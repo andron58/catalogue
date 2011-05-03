@@ -31,7 +31,7 @@
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>181</width>
+       <width>301</width>
        <height>22</height>
       </rect>
      </property>
@@ -52,7 +52,7 @@
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>200</x>
+       <x>320</x>
        <y>0</y>
        <width>71</width>
        <height>16</height>
@@ -65,39 +65,39 @@
     <widget class="QComboBox" name="izdComboBox">
      <property name="geometry">
       <rect>
-       <x>200</x>
+       <x>320</x>
        <y>20</y>
-       <width>181</width>
+       <width>301</width>
        <height>22</height>
       </rect>
      </property>
     </widget>
-    <widget class="QTableView" name="tableView">
+    <widget class="QTableView" name="sqlTableView">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>51</y>
+       <y>101</y>
        <width>691</width>
-       <height>471</height>
+       <height>421</height>
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="authorEdit">
      <property name="geometry">
       <rect>
-       <x>390</x>
-       <y>20</y>
-       <width>113</width>
+       <x>10</x>
+       <y>70</y>
+       <width>301</width>
        <height>20</height>
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="nameEdit">
      <property name="geometry">
       <rect>
-       <x>510</x>
-       <y>20</y>
-       <width>113</width>
+       <x>320</x>
+       <y>70</y>
+       <width>301</width>
        <height>20</height>
       </rect>
      </property>
@@ -105,8 +105,8 @@
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>390</x>
-       <y>0</y>
+       <x>10</x>
+       <y>50</y>
        <width>46</width>
        <height>13</height>
       </rect>
@@ -118,8 +118,8 @@
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>510</x>
-       <y>0</y>
+       <x>320</x>
+       <y>50</y>
        <width>51</width>
        <height>16</height>
       </rect>
@@ -132,7 +132,7 @@
      <property name="geometry">
       <rect>
        <x>630</x>
-       <y>20</y>
+       <y>70</y>
        <width>75</width>
        <height>23</height>
       </rect>
@@ -141,28 +141,31 @@
       <string>Найти</string>
      </property>
     </widget>
+    <widget class="QCheckBox" name="checkBox">
+     <property name="geometry">
+      <rect>
+       <x>630</x>
+       <y>20</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Все</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
       <x>730</x>
-      <y>40</y>
+      <y>10</y>
       <width>361</width>
-      <height>501</height>
+      <height>531</height>
      </rect>
     </property>
     <property name="title">
      <string/>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="comboBox">
-    <property name="geometry">
-     <rect>
-      <x>730</x>
-      <y>10</y>
-      <width>361</width>
-      <height>22</height>
-     </rect>
     </property>
    </widget>
   </widget>
@@ -250,10 +253,26 @@
    <hints>
     <hint type="sourcelabel">
      <x>691</x>
-     <y>75</y>
+     <y>113</y>
     </hint>
     <hint type="destinationlabel">
      <x>706</x>
+     <y>38</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>discipComboBox</sender>
+   <signal>activated(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>discip_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>144</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>153</x>
      <y>38</y>
     </hint>
    </hints>
@@ -262,5 +281,6 @@
  <slots>
   <slot>on_additem_clicked()</slot>
   <slot>searchButton_clicked()</slot>
+  <slot>discip_changed()</slot>
  </slots>
 </ui>
