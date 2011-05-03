@@ -277,10 +277,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>izdComboBox</sender>
+   <signal>activated(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>izd_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>424</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>443</x>
+     <y>36</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>on_additem_clicked()</slot>
   <slot>searchButton_clicked()</slot>
   <slot>discip_changed()</slot>
+  <slot>izd_changed()</slot>
  </slots>
 </ui>
