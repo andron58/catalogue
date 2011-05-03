@@ -1,11 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'addform.ui'
 **
-<<<<<<< HEAD
-** Created: Mon 2. May 19:35:52 2011
-=======
-** Created: Mon 2. May 18:24:38 2011
->>>>>>> 9582de7dd1fbeb67b42e1f15dd1de2740506d43e
+** Created: Tue 3. May 01:56:19 2011
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -25,8 +21,8 @@
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QLineEdit>
-#include <QtGui/QPlainTextEdit>
 #include <QtGui/QPushButton>
+#include <QtGui/QTextEdit>
 #include <QtGui/QToolButton>
 #include <QtGui/QWidget>
 
@@ -47,35 +43,37 @@ public:
     QLabel *label;
     QComboBox *SubjectcomboBox;
     QLabel *label_4;
-    QComboBox *SubjectcomboBox_2;
+    QComboBox *TypecomboBox;
     QLabel *label_5;
     QLineEdit *AuthorEdit;
     QLabel *label_7;
     QLineEdit *NameEdit;
     QLabel *label_8;
     QLineEdit *IzdatEdit;
-    QLabel *label_9;
-    QPlainTextEdit *plainTextEdit;
     QLabel *label_12;
     QLineEdit *YearEdit;
     QLabel *label_10;
     QLineEdit *FilepathEdit;
-    QToolButton *FiletoolButton;
     QLabel *label_11;
     QLineEdit *ImagepathEdit;
     QToolButton *ImagetoolButton;
     QCheckBox *checkBox;
+    QToolButton *FiletoolButton;
+    QTextEdit *DeskEdit;
+    QLabel *label_9;
 
     void setupUi(QDialog *AddForm)
     {
         if (AddForm->objectName().isEmpty())
             AddForm->setObjectName(QString::fromUtf8("AddForm"));
-        AddForm->resize(442, 563);
+        AddForm->resize(444, 563);
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(AddForm->sizePolicy().hasHeightForWidth());
         AddForm->setSizePolicy(sizePolicy);
+        AddForm->setMinimumSize(QSize(444, 563));
+        AddForm->setMaximumSize(QSize(444, 563));
         AddForm->setSizeGripEnabled(false);
         layoutWidget = new QWidget(AddForm);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
@@ -133,10 +131,10 @@ public:
 
         gridLayout->addWidget(label_4, 3, 0, 1, 1);
 
-        SubjectcomboBox_2 = new QComboBox(layoutWidget);
-        SubjectcomboBox_2->setObjectName(QString::fromUtf8("SubjectcomboBox_2"));
+        TypecomboBox = new QComboBox(layoutWidget);
+        TypecomboBox->setObjectName(QString::fromUtf8("TypecomboBox"));
 
-        gridLayout->addWidget(SubjectcomboBox_2, 3, 1, 1, 2);
+        gridLayout->addWidget(TypecomboBox, 3, 1, 1, 2);
 
         label_5 = new QLabel(layoutWidget);
         label_5->setObjectName(QString::fromUtf8("label_5"));
@@ -168,72 +166,71 @@ public:
 
         gridLayout->addWidget(IzdatEdit, 6, 2, 1, 1);
 
-        label_9 = new QLabel(layoutWidget);
-        label_9->setObjectName(QString::fromUtf8("label_9"));
-
-        gridLayout->addWidget(label_9, 7, 0, 1, 2);
-
-        plainTextEdit = new QPlainTextEdit(layoutWidget);
-        plainTextEdit->setObjectName(QString::fromUtf8("plainTextEdit"));
-
-        gridLayout->addWidget(plainTextEdit, 7, 2, 1, 1);
-
         label_12 = new QLabel(layoutWidget);
         label_12->setObjectName(QString::fromUtf8("label_12"));
 
-        gridLayout->addWidget(label_12, 8, 0, 1, 1);
+        gridLayout->addWidget(label_12, 9, 0, 1, 1);
 
         YearEdit = new QLineEdit(layoutWidget);
         YearEdit->setObjectName(QString::fromUtf8("YearEdit"));
 
-        gridLayout->addWidget(YearEdit, 8, 2, 1, 1);
+        gridLayout->addWidget(YearEdit, 9, 2, 1, 1);
 
         label_10 = new QLabel(layoutWidget);
         label_10->setObjectName(QString::fromUtf8("label_10"));
 
-        gridLayout->addWidget(label_10, 9, 0, 1, 2);
+        gridLayout->addWidget(label_10, 10, 0, 1, 2);
 
         FilepathEdit = new QLineEdit(layoutWidget);
         FilepathEdit->setObjectName(QString::fromUtf8("FilepathEdit"));
 
-        gridLayout->addWidget(FilepathEdit, 9, 2, 1, 1);
-
-        FiletoolButton = new QToolButton(layoutWidget);
-        FiletoolButton->setObjectName(QString::fromUtf8("FiletoolButton"));
-
-        gridLayout->addWidget(FiletoolButton, 9, 3, 1, 1);
+        gridLayout->addWidget(FilepathEdit, 10, 2, 1, 1);
 
         label_11 = new QLabel(layoutWidget);
         label_11->setObjectName(QString::fromUtf8("label_11"));
 
-        gridLayout->addWidget(label_11, 11, 0, 1, 2);
+        gridLayout->addWidget(label_11, 12, 0, 1, 2);
 
         ImagepathEdit = new QLineEdit(layoutWidget);
         ImagepathEdit->setObjectName(QString::fromUtf8("ImagepathEdit"));
 
-        gridLayout->addWidget(ImagepathEdit, 11, 2, 1, 1);
+        gridLayout->addWidget(ImagepathEdit, 12, 2, 1, 1);
 
         ImagetoolButton = new QToolButton(layoutWidget);
         ImagetoolButton->setObjectName(QString::fromUtf8("ImagetoolButton"));
 
-        gridLayout->addWidget(ImagetoolButton, 11, 3, 1, 1);
+        gridLayout->addWidget(ImagetoolButton, 12, 3, 1, 1);
 
         checkBox = new QCheckBox(layoutWidget);
         checkBox->setObjectName(QString::fromUtf8("checkBox"));
 
-        gridLayout->addWidget(checkBox, 12, 0, 1, 1);
+        gridLayout->addWidget(checkBox, 13, 0, 1, 1);
+
+        FiletoolButton = new QToolButton(layoutWidget);
+        FiletoolButton->setObjectName(QString::fromUtf8("FiletoolButton"));
+
+        gridLayout->addWidget(FiletoolButton, 10, 3, 1, 1);
+
+        DeskEdit = new QTextEdit(layoutWidget);
+        DeskEdit->setObjectName(QString::fromUtf8("DeskEdit"));
+
+        gridLayout->addWidget(DeskEdit, 7, 2, 1, 1);
+
+        label_9 = new QLabel(layoutWidget);
+        label_9->setObjectName(QString::fromUtf8("label_9"));
+
+        gridLayout->addWidget(label_9, 7, 0, 1, 1);
 
 
         gridLayout_2->addLayout(gridLayout, 0, 0, 1, 2);
 
         QWidget::setTabOrder(KurscomboBox, SemcomboBox);
         QWidget::setTabOrder(SemcomboBox, SubjectcomboBox);
-        QWidget::setTabOrder(SubjectcomboBox, SubjectcomboBox_2);
-        QWidget::setTabOrder(SubjectcomboBox_2, AuthorEdit);
+        QWidget::setTabOrder(SubjectcomboBox, TypecomboBox);
+        QWidget::setTabOrder(TypecomboBox, AuthorEdit);
         QWidget::setTabOrder(AuthorEdit, NameEdit);
         QWidget::setTabOrder(NameEdit, IzdatEdit);
-        QWidget::setTabOrder(IzdatEdit, plainTextEdit);
-        QWidget::setTabOrder(plainTextEdit, YearEdit);
+        QWidget::setTabOrder(IzdatEdit, YearEdit);
         QWidget::setTabOrder(YearEdit, FilepathEdit);
         QWidget::setTabOrder(FilepathEdit, FiletoolButton);
         QWidget::setTabOrder(FiletoolButton, ImagepathEdit);
@@ -243,6 +240,12 @@ public:
 
         retranslateUi(AddForm);
         QObject::connect(AddButton, SIGNAL(clicked()), AddForm, SLOT(on_addButton_clicked()));
+        QObject::connect(KurscomboBox, SIGNAL(currentIndexChanged(QString)), AddForm, SLOT(on_KursCombobox_select()));
+        QObject::connect(SemcomboBox, SIGNAL(currentIndexChanged(QString)), AddForm, SLOT(on_SemCombobox_select()));
+        QObject::connect(SubjectcomboBox, SIGNAL(currentIndexChanged(QString)), AddForm, SLOT(on_SubjectCombobox_select()));
+        QObject::connect(FiletoolButton, SIGNAL(clicked()), AddForm, SLOT(on_OpenFileButton_clicked()));
+        QObject::connect(ImagetoolButton, SIGNAL(clicked()), AddForm, SLOT(on_OpenImageButton_clicked()));
+        QObject::connect(TypecomboBox, SIGNAL(currentIndexChanged(QString)), AddForm, SLOT(on_TypeCombobox_select()));
 
         QMetaObject::connectSlotsByName(AddForm);
     } // setupUi
@@ -259,13 +262,13 @@ public:
         label_5->setText(QApplication::translate("AddForm", "\320\220\320\262\321\202\320\276\321\200:", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("AddForm", "\320\235\320\260\320\262\320\260\320\275\320\270\320\265:", 0, QApplication::UnicodeUTF8));
         label_8->setText(QApplication::translate("AddForm", "\320\230\320\267\320\264\320\260\321\202\320\265\320\273\321\214\321\201\321\202\320\262\320\276:", 0, QApplication::UnicodeUTF8));
-        label_9->setText(QApplication::translate("AddForm", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265:", 0, QApplication::UnicodeUTF8));
         label_12->setText(QApplication::translate("AddForm", "\320\223\320\276\320\264:", 0, QApplication::UnicodeUTF8));
         label_10->setText(QApplication::translate("AddForm", "\320\237\321\203\321\202\321\214 \320\272 \321\204\320\260\320\271\320\273\321\203:", 0, QApplication::UnicodeUTF8));
-        FiletoolButton->setText(QApplication::translate("AddForm", "...", 0, QApplication::UnicodeUTF8));
         label_11->setText(QApplication::translate("AddForm", "\320\237\321\203\321\202\321\214 \320\272 \320\270\320\267\320\276\320\261\321\200\320\260\320\266\320\265\320\275\320\270\321\216:", 0, QApplication::UnicodeUTF8));
         ImagetoolButton->setText(QApplication::translate("AddForm", "...", 0, QApplication::UnicodeUTF8));
         checkBox->setText(QApplication::translate("AddForm", "\320\224\320\276\321\201\321\202\321\203\320\277\320\275\320\276 \320\262\321\201\320\265\320\274", 0, QApplication::UnicodeUTF8));
+        FiletoolButton->setText(QApplication::translate("AddForm", "...", 0, QApplication::UnicodeUTF8));
+        label_9->setText(QApplication::translate("AddForm", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265:", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

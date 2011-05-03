@@ -5,7 +5,9 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("Windows-1251"));
+    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("CP-1251"));
+	 QTextCodec::setCodecForTr(QTextCodec::codecForName("CP-1251"));
+	//QTextCodec::setCodecForLocale(QTextCodec::codecForLocale());
 	LoginForm w;
 	MainWindow m;
 
