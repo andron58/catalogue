@@ -23,6 +23,7 @@ private slots:
     void on_action_activated();
 	void on_additem_clicked();
 	void discip_changed();
+	void izd_changed();
 
 private:
     Ui::MainWindow *ui;

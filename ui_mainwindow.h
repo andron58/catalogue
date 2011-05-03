@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Tue 3. May 17:46:59 2011
+** Created: Tue 3. May 19:14:29 2011
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -140,6 +140,7 @@ public:
         QObject::connect(action_3, SIGNAL(activated()), MainWindow, SLOT(on_additem_clicked()));
         QObject::connect(pushButton, SIGNAL(clicked()), MainWindow, SLOT(searchButton_clicked()));
         QObject::connect(discipComboBox, SIGNAL(activated(int)), MainWindow, SLOT(discip_changed()));
+        QObject::connect(izdComboBox, SIGNAL(activated(int)), MainWindow, SLOT(izd_changed()));
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
