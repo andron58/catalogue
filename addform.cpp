@@ -9,7 +9,11 @@ AddForm::AddForm(QWidget *parent)
 }
 void AddForm::exec(int change_id)
 {
+<<<<<<< HEAD
 	pd.loadPreferences();
+=======
+	
+>>>>>>> 4c354530084aaeaac4ede1dfc807070f71811127
 	id_ch=change_id;
 	filenm="";
 	imagenm="";
@@ -61,12 +65,21 @@ void AddForm::changepub()
 		QMessageBox::warning(0, "Database Error", query_for_file.lastError().text());
 		return;
 	}
+<<<<<<< HEAD
 	
 	while (query_for_image.next())
 	{
 		ui.ImagepathEdit->setText(query_for_image.value(0).toString());
 	}
 	
+=======
+	
+	while (query_for_image.next())
+	{
+		ui.ImagepathEdit->setText(query_for_image.value(0).toString());
+	}
+	
+>>>>>>> 4c354530084aaeaac4ede1dfc807070f71811127
 	while (query_for_file.next())
 	{
 		ui.FilepathEdit->setText(query_for_file.value(0).toString());
