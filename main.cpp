@@ -1,6 +1,5 @@
 #include <QtGui/QApplication>
 #include "mainwindow.h"
-#include "loginform.h"
 
 int main(int argc, char *argv[])
 {
@@ -8,7 +7,7 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("CP-1251"));
 	 QTextCodec::setCodecForTr(QTextCodec::codecForName("CP-1251"));
 	//QTextCodec::setCodecForLocale(QTextCodec::codecForLocale());
-	LoginForm w;
+	/*LoginForm w;
 	MainWindow m;
 
 	if(w.exec() != QDialog::Accepted)
@@ -18,5 +17,8 @@ int main(int argc, char *argv[])
 
 	m.show();
 
-    return a.exec();
+    return a.exec();*/
+	MainWindow w;
+	w.show();
+	return a.exec();
 }

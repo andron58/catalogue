@@ -2,9 +2,17 @@
 
 AddForm::AddForm(QWidget *parent)
 	: QDialog(parent)
-{
+{	
+	
 	ui.setupUi(this);
-	createStatusBar();
+	
+}
+void AddForm::exec(int change_id)
+{
+	pd.loadPreferences();
+	id_ch=change_id;
+	filenm="";
+	imagenm="";
 	currentid_file=NULL;
 	currentid_image=NULL;
 	QSqlQuery sqlquery;
@@ -18,13 +26,72 @@ AddForm::AddForm(QWidget *parent)
 	{
 		ui.KurscomboBox->addItem(sqlquery.value(2).toString());
 	}
-	
 
+	on_TypeCombobox_select();
+	on_SubjectCombobox_select();
+	ui.AddButton->setText("Добавить");
+	if (id_ch!=0)
+	{
+		changepub();
+	}
+
+	QDialog::exec();
 }
-
-void AddForm::createStatusBar()
+void AddForm::changepub()
 {
+	QSqlQuery query, query_for_image, query_for_file;
+	QString str,image_fn, file_fn;
+	QStringList list;
+
+	ui.AddButton->setText("Изменить");
+	if (!query.exec("SELECT * FROM public.publication WHERE id_pub="+QString::number(id_ch)+""))
+	{
+		QMessageBox::warning(0, "Database Error", query.lastError().text());
+		return;
+	}
+
+	if (!query_for_image.exec("SELECT image_filename FROM public.images WHERE id_image=(SELECT id_image FROM public.publication WHERE id_pub="+QString::number(id_ch)+")"))
+	{
+		QMessageBox::warning(0, "Database Error", query_for_image.lastError().text());
+		return;
+	}
 	
+	if (!query_for_file.exec("SELECT filename FROM public.files WHERE id_file=(SELECT id_file FROM public.publication WHERE id_pub="+QString::number(id_ch)+")"))
+	{
+		QMessageBox::warning(0, "Database Error", query_for_file.lastError().text());
+		return;
+	}
+	
+	while (query_for_image.next())
+	{
+		ui.ImagepathEdit->setText(query_for_image.value(0).toString());
+	}
+	
+	while (query_for_file.next())
+	{
+		ui.FilepathEdit->setText(query_for_file.value(0).toString());
+	}
+
+	while (query.next())
+	{
+		str = query.value(11).toString();
+		list = str.split("-");
+		ui.KurscomboBox->setCurrentIndex(list[0].toInt());
+		on_KursCombobox_select();
+		ui.SemcomboBox->setCurrentIndex(list[1].toInt()/list[0].toInt());
+		kursklass=query.value(11).toString();
+		ui.SubjectcomboBox->setCurrentIndex(query.value(3).toInt());
+		ui.TypecomboBox->setCurrentIndex(query.value(4).toInt());
+		ui.AuthorEdit->setText(query.value(5).toString());
+		ui.NameEdit->setText(query.value(6).toString());
+		ui.IzdatEdit->setText(query.value(7).toString());
+		ui.DeskEdit->setText(query.value(8).toString());
+		ui.YearEdit->setText(query.value(10).toString());
+		ui.checkBox->setTristate(query.value(10).toBool());
+
+	}
+
+
 }
 
 void AddForm::clearform()
@@ -171,25 +238,60 @@ void AddForm::on_TypeCombobox_select()
 
 void AddForm::on_OpenFileButton_clicked()
 {
-	QString fileName = QFileDialog::getOpenFileName(this, tr("Выберете книгу"),"C:/",tr("Книги (*.djvu *.pdf *.doc *.docx)"));
+	QString fileName = QFileDialog::getOpenFileName(this, tr("Выберете книгу"),pd.fav_files,tr("Книги (*.djvu *.pdf *.doc *.docx)"));
 	ui.FilepathEdit->setText(fileName);
 	QFile file(fileName);
-	filenm=fileName.mid(fileName.lastIndexOf('/') + 1); 
+	//filenm=fileName.mid(fileName.lastIndexOf('/') + 1); 
+	filenm=fileName;
 	file.open(QIODevice::ReadOnly);
 	BAfile=file.readAll();
 }
 
 void AddForm::on_OpenImageButton_clicked()
 {
-	QString fileName = QFileDialog::getOpenFileName(this, tr("Выберете изображение"),"C:/",tr("Картинки (*.jpg *.png *.gif)"));
+	QString fileName = QFileDialog::getOpenFileName(this, tr("Выберете изображение"),pd.fav_images,tr("Картинки (*.jpg *.png *.gif)"));
 	
 	ui.ImagepathEdit->setText(fileName);
-	image.load(fileName);
-	image.scaled(300,300);
+	imagenm=fileName;
+	//image.load(fileName);
+	image = QImage(fileName).scaled(300,300); 
 	QBuffer ImageBuffer(&BAimage);
 	ImageBuffer.open(QIODevice::WriteOnly);
 	image.save(&ImageBuffer, "PNG"); 
 	
+}
+
+
+void AddForm::updatedata()
+{
+	QMessageBox msgbox;
+	QString querystr;
+	QSqlQuery query;
+	currentid_file=13;
+	currentid_image=14;
+	query.prepare("UPDATE public.publication SET id_subject=:id_subject, id_type=:id_type, author=:author, pub_name=:pubname, izdat=:izdat, description=:desc, year=:year, klassgloss=:klassgloss, id_file=:id_file, id_image=:id_image WHERE id_pub=:id_pub");
+	query.bindValue(":id_subject",id_subject);
+	query.bindValue(":id_type",id_type);
+	query.bindValue(":author",ui.AuthorEdit->text());
+	query.bindValue(":pub_name",ui.NameEdit->text());
+	query.bindValue(":izdat",ui.IzdatEdit->text());
+	query.bindValue(":desc", ui.DeskEdit->toPlainText());
+	query.bindValue(":year", ui.YearEdit->text());
+	query.bindValue(":klassgloss", kursklass);
+	query.bindValue(":id_file", currentid_file);
+	query.bindValue(":id_image", currentid_image);
+	query.bindValue(":id_pub",id_ch);
+	if (!query.exec())
+	{
+		QMessageBox::warning(0, "Database Error", query.lastError().text());
+		ui.DeskEdit->setPlainText(query.lastError().text());
+	}
+	else
+	{
+		msgbox.setText("Запись успешно обновлена");
+		msgbox.exec();
+		return;
+	}
 }
 
 void AddForm::on_addButton_clicked()
@@ -204,34 +306,44 @@ void AddForm::on_addButton_clicked()
 	}
 	
 	
-	
-	query.prepare("INSERT INTO public.images (image)" 
-		"VALUES (:image) RETURNING id_image");
-	query.bindValue(":image",BAimage);
-	if (!query.exec())
+	if (imagenm!="")
 	{
-		QMessageBox::warning(0, "Database Error", query.lastError().text());
+		query.prepare("INSERT INTO public.images (image, image_filename)" 
+			"VALUES (:image, :ifilename) RETURNING id_image");
+		query.bindValue(":image",BAimage);
+		query.bindValue(":ifilename",imagenm);
+		if (!query.exec())
+		{
+				QMessageBox::warning(0, "Database Error", query.lastError().text());
+		}
+		while (query.next())
+		{
+				currentid_image=query.value(0).toInt();
+		}
+		query.clear();
 	}
-	while (query.next())
+	if (filenm!="")
 	{
-		currentid_image=query.value(0).toInt();
+		query.prepare("INSERT INTO public.files (file, filename)" 
+			"VALUES (:file, :filename) RETURNING id_file");
+		query.bindValue(":file",BAfile);
+		query.bindValue(":filename",filenm);
+		if (!query.exec())
+		{
+			QMessageBox::warning(0, "Database Error", query.lastError().text());
+		}
+		while (query.next())
+		{
+			currentid_file=query.value(0).toInt();
+		}
+		query.clear();
 	}
-	query.clear();
 
-	query.prepare("INSERT INTO public.files (file, filename)" 
-		"VALUES (:file, :filename) RETURNING id_file");
-	query.bindValue(":file",BAfile);
-	query.bindValue(":filename",filenm);
-	if (!query.exec())
+	if (ui.AddButton->text()=="Изменить")
 	{
-		QMessageBox::warning(0, "Database Error", query.lastError().text());
+		updatedata();
+		return;
 	}
-	while (query.next())
-	{
-		currentid_file=query.value(0).toInt();
-	}
-	query.clear();
-
 
 	query.prepare("INSERT INTO public.publication (id_user, id_subject, id_type, author, pub_name, izdat, description, id_image, id_file, access, year, klassgloss)" 
 		"VALUES (:id_user, :id_subject, :id_type, :author, :name, :izdat, :description, :id_image, :id_file, :access, :year, :klassgloss)");
@@ -244,6 +356,7 @@ void AddForm::on_addButton_clicked()
 	query.bindValue(":name",ui.NameEdit->text());
 	query.bindValue(":izdat",ui.IzdatEdit->text());
 	query.bindValue(":description", ui.DeskEdit->toPlainText());
+	query.bindValue(":year",ui.YearEdit->text());
 	if (currentid_image!=0)
 	{
 		query.bindValue(":id_image",currentid_image);
@@ -261,11 +374,10 @@ void AddForm::on_addButton_clicked()
 	{
 		query.bindValue(":access","FALSE");
 	}
-	query.bindValue(":year",ui.YearEdit->text());
 	if (!query.exec())
 	{
 		QMessageBox::warning(0, "Database Error", query.lastError().text());
-		//ui.DeskEdit->setPlainText(query.lastError().text());
+		ui.DeskEdit->setPlainText(query.lastError().text());
 		return;
 	}
 	else

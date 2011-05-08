@@ -5,6 +5,7 @@
 #include <QFile>
 #include "ui_addform.h"
 #include "dbwork.h"
+#include "preferencesdialog.h"
 #include <QSqlQuery>
 #include <QImage>
 #include <QStatusBar>
@@ -18,14 +19,19 @@ class AddForm : public QDialog
 public:
 	AddForm(QWidget *parent = 0);
 	~AddForm();
-	QString kursklass, filenm;
+	PreferencesDialog pd;
+	QString kursklass, filenm, imagenm;
 	int id_subject, id_type;
 	QImage image;
 	QByteArray BAimage;
 	QByteArray BAfile;
 	int currentid_file;
 	int currentid_image;
+	int id_ch;
 	void clearform();
+	void changepub();
+	void exec(int change_id);
+	void updatedata();
 
 	private slots:
 		void on_addButton_clicked();
@@ -39,7 +45,6 @@ public:
 		
 private:
 	Ui::AddForm ui;
-	void createStatusBar();
 };
 
 #endif // ADDFORM_H

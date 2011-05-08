@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <host>95.83.65.235</host>
+    <host>192.168.0.103</host>
     <databasename>catalog</databasename>
     <username>andron58</username>
     <password>123</password>
     <port>5432</port>
+    <favfiles>D:\inbox\Для загрузки в БД</favfiles>
+    <favimages>D:\inbox\Для загрузки в БД</favimages>
 </database>

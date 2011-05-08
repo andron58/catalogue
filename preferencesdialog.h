@@ -15,17 +15,20 @@ class PreferencesDialog : public QDialog
 public:
     explicit PreferencesDialog(QWidget *parent = 0);
     ~PreferencesDialog();
+	QString fav_files, fav_images;
+	 void loadPreferences();
 
 private slots:
     void on_pushButton_clicked();
-
     void on_connectButton_clicked();
+	void on_openimageButton_clicked();
+	void on_openfileButton_clicked();
 
 private:
     Ui::PreferencesDialog *ui;
     void writeXML (const QString &fileName);
     void readXML (const QString &fileName);
-    void loadPreferences();
+   
     void savePreferences();
 DBwork dbw;
 

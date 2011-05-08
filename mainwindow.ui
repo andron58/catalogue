@@ -207,15 +207,27 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionConnect"/>
+   <addaction name="actionDisconnect"/>
    <addaction name="separator"/>
+   <addaction name="action_3"/>
+   <addaction name="action"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="action">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/new/prefix1/images/preferences.png</normaloff>:/new/prefix1/images/preferences.png</iconset>
+   </property>
    <property name="text">
     <string>Соединение</string>
    </property>
   </action>
   <action name="action_3">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/new/prefix1/images/add.png</normaloff>:/new/prefix1/images/add.png</iconset>
+   </property>
    <property name="text">
     <string>Создать</string>
    </property>
@@ -225,9 +237,35 @@
     <string>Редактировать</string>
    </property>
   </action>
+  <action name="actionConnect">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/new/prefix1/images/connect.png</normaloff>:/new/prefix1/images/connect.png</iconset>
+   </property>
+   <property name="text">
+    <string>Соединиться</string>
+   </property>
+   <property name="toolTip">
+    <string>Соединиться с БД</string>
+   </property>
+  </action>
+  <action name="actionDisconnect">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/new/prefix1/images/stop.png</normaloff>:/new/prefix1/images/stop.png</iconset>
+   </property>
+   <property name="text">
+    <string>Разъединиться</string>
+   </property>
+   <property name="toolTip">
+    <string>Разорвать соединение</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>action_3</sender>
@@ -253,7 +291,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>691</x>
-     <y>113</y>
+     <y>157</y>
     </hint>
     <hint type="destinationlabel">
      <x>706</x>
@@ -269,7 +307,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>144</x>
-     <y>72</y>
+     <y>106</y>
     </hint>
     <hint type="destinationlabel">
      <x>153</x>
@@ -285,11 +323,43 @@
    <hints>
     <hint type="sourcelabel">
      <x>424</x>
-     <y>73</y>
+     <y>106</y>
     </hint>
     <hint type="destinationlabel">
      <x>443</x>
      <y>36</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionConnect</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_connect_activated()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>549</x>
+     <y>300</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionDisconnect</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_disconnect_activated()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>549</x>
+     <y>300</y>
     </hint>
    </hints>
   </connection>
@@ -299,5 +369,7 @@
   <slot>searchButton_clicked()</slot>
   <slot>discip_changed()</slot>
   <slot>izd_changed()</slot>
+  <slot>on_connect_activated()</slot>
+  <slot>on_disconnect_activated()</slot>
  </slots>
 </ui>

@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>images/add.png</file>
+        <file>images/connect.png</file>
+        <file>images/play.png</file>
+        <file>images/preferences.png</file>
+        <file>images/stop.png</file>
+    </qresource>
+</RCC>

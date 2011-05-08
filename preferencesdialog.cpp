@@ -10,6 +10,8 @@ PreferencesDialog::PreferencesDialog(QWidget *parent) :
     ui(new Ui::PreferencesDialog)
 {
     ui->setupUi(this);
+	ui->tabWidget->setTabText(0,"Параметры соединения");
+	ui->tabWidget->setTabText(1,"Пути");
     loadPreferences();
 }
 
@@ -36,6 +38,8 @@ void PreferencesDialog::writeXML(const QString &fileName)
     xmlWriter.writeTextElement("username", ui->userNameEdit->text());
     xmlWriter.writeTextElement("password", ui->passEdit->text());
     xmlWriter.writeTextElement("port",ui->portEdit->text());
+	xmlWriter.writeTextElement("favfiles",fav_files);
+	xmlWriter.writeTextElement("favimages",fav_images);
     xmlWriter.writeEndDocument();
     file.close();
 }
@@ -66,13 +70,21 @@ void PreferencesDialog::readXML(const QString &fileName)
     xmlReader.readNext();
     xmlReader.readNext();
     ui->portEdit->setText(xmlReader.readElementText());
-
+	xmlReader.readNext();
+	xmlReader.readNext();
+	ui->filesEdit->setText(xmlReader.readElementText());
+	xmlReader.readNext();
+	xmlReader.readNext();
+	ui->imagesEdit->setText(xmlReader.readElementText());
+	
     file->close();
 }
 
 void PreferencesDialog::loadPreferences()
 {
     readXML("preferences.xml");
+	fav_files=ui->filesEdit->text();
+	fav_images=ui->imagesEdit->text();
 }
 
 void PreferencesDialog::savePreferences()
@@ -94,4 +106,16 @@ void PreferencesDialog::on_connectButton_clicked()
     userName=ui->userNameEdit->text();
     password=ui->passEdit->text();
     dbw.createConnection(host,port,dataBaseName,userName,password);
+}
+
+void PreferencesDialog::on_openfileButton_clicked()
+{
+	fav_files = QFileDialog::getExistingDirectory(this, tr("Выберете директорию"),	"C:/",QFileDialog::ShowDirsOnly);
+	ui->filesEdit->setText(fav_files);
+}
+
+void PreferencesDialog::on_openimageButton_clicked()
+{
+	fav_images = QFileDialog::getExistingDirectory(this, tr("Выберете директорию"),	"C:/",QFileDialog::ShowDirsOnly);
+	ui->imagesEdit->setText(fav_images);
 }

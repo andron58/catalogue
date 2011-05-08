@@ -52,13 +52,12 @@ bool DBwork::createConnection(QString& host, int& port, QString& dataBaseName,
     //int port = 5432;
    connectionParametrs(host, port, dataBaseName, userName, password);
 	
-    QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
+    db = QSqlDatabase::addDatabase("QPSQL");
     db.setHostName(host);
     db.setDatabaseName(dataBaseName);
     db.setUserName(userName);
     db.setPassword(password);
     db.setPort(port);
-
 
     if (!db.open()) {
         //QMessageBox::warning(0, QObject::tr("Database Error"), db.lastError());
@@ -67,4 +66,9 @@ bool DBwork::createConnection(QString& host, int& port, QString& dataBaseName,
     }
     return true;
 
+}
+
+void DBwork::closeConnection()
+{
+	db.close();
 }

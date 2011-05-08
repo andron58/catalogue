@@ -20,6 +20,7 @@ public:
 		QString& userName, QString& password);
 	bool createConnection(QString& host, int& port, QString& dataBaseName,
 		QString& userName, QString& password);
+	void closeConnection();
 
 private:
 	

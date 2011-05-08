@@ -9,13 +9,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-	QString host , dataBaseName, userName, password;
-	int port;
-	dbw.connectionParametrs(host, port, dataBaseName, userName, password);
-	dbw.createConnection(host,port,dataBaseName,userName,password);
-
-	QSqlQuery sql;
-
+	ui->actionDisconnect->setDisabled(true);
+	ui->action_3->setDisabled(true);
+	//dbw.connectionParametrs(QString host, int port, QString dataBaseName, QString userName, QString password);
+	/*QSqlQuery sql;
+	ui->actionDisconnect->setDisabled(true);
+	
 	ui->discipComboBox->addItem("");
 	ui->izdComboBox->addItem("");
 
@@ -38,8 +37,9 @@ MainWindow::MainWindow(QWidget *parent) :
 	while (sql.next())
 	{
 		ui->izdComboBox->addItem(sql.value(1).toString());
-	}
+	}*/
 }
+
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -119,5 +119,59 @@ void MainWindow::on_action_activated()
 void MainWindow::on_additem_clicked()
 {
 	AddForm ad;
-	ad.exec();
+	id_forchange=0;
+	ad.exec(id_forchange);
+	
+}
+
+void MainWindow::on_connect_activated()
+{
+	dbw.createConnection(host, port, dataBaseName, userName, password);//перенеси потом это в логин форм... а то закроет форму и сможет работать с БД
+	LoginForm lf;
+	lf.exec();
+	ui->actionDisconnect->setDisabled(false);
+	ui->action_3->setDisabled(false);
+	init();
+}
+
+void MainWindow::on_disconnect_activated()
+{
+	dbw.closeConnection();
+	ui->actionDisconnect->setDisabled(true);
+	clearform();
+}
+
+void MainWindow::clearform()
+{
+	ui->discipComboBox->clear();
+	ui->izdComboBox->clear();
+}
+
+void MainWindow::init()
+{
+	QSqlQuery sql;
+
+	ui->discipComboBox->addItem("");
+	ui->izdComboBox->addItem("");
+
+
+	if (!sql.exec("SELECT * from public.subject"))
+	{
+		//ошибка запроса
+	}
+
+	while (sql.next())
+	{
+		ui->discipComboBox->addItem(sql.value(1).toString());
+	}
+
+	if (!sql.exec("SELECT * from public.type"))
+	{
+		//ошибка запроса
+	}
+
+	while (sql.next())
+	{
+		ui->izdComboBox->addItem(sql.value(1).toString());
+	}
 }

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'LoginForm.ui'
 **
-** Created: Mon 2. May 18:24:38 2011
+** Created: Mon 9. May 01:24:20 2011
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -43,6 +43,7 @@ public:
         PassEdit = new QLineEdit(LoginForm);
         PassEdit->setObjectName(QString::fromUtf8("PassEdit"));
         PassEdit->setGeometry(QRect(140, 70, 113, 20));
+        PassEdit->setEchoMode(QLineEdit::Password);
         label = new QLabel(LoginForm);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(43, 43, 100, 13));
