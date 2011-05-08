@@ -13,7 +13,6 @@ MainWindow::MainWindow(QWidget *parent) :
 	int port;
 	dbw.connectionParametrs(host, port, dataBaseName, userName, password);
 	dbw.createConnection(host,port,dataBaseName,userName,password);
-
 	QSqlQuery sql;
 
 	ui->discipComboBox->addItem("");
@@ -40,6 +39,7 @@ MainWindow::MainWindow(QWidget *parent) :
 		ui->izdComboBox->addItem(sql.value(1).toString());
 	}
 }
+
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -119,5 +119,7 @@ void MainWindow::on_action_activated()
 void MainWindow::on_additem_clicked()
 {
 	AddForm ad;
-	ad.exec();
+	id_forchange=0;
+	ad.exec(id_forchange);
+	
 }

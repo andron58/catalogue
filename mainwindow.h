@@ -9,7 +9,7 @@
 namespace Ui {
     class MainWindow;
 }
-
+class QAction;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -17,6 +17,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+	DBwork dbw;
+	int id_forchange;
 
 private slots:
 	void searchButton_clicked();
@@ -24,10 +26,9 @@ private slots:
 	void on_additem_clicked();
 	void discip_changed();
 	void izd_changed();
-
+	
 private:
     Ui::MainWindow *ui;
-	DBwork dbw;
 };
 
 #endif // MAINWINDOW_H
