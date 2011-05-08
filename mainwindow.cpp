@@ -9,21 +9,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-<<<<<<< HEAD
 	ui->actionDisconnect->setDisabled(true);
 	ui->action_3->setDisabled(true);
 	//dbw.connectionParametrs(QString host, int port, QString dataBaseName, QString userName, QString password);
 	/*QSqlQuery sql;
 	ui->actionDisconnect->setDisabled(true);
 	
-=======
-	QString host , dataBaseName, userName, password;
-	int port;
-	dbw.connectionParametrs(host, port, dataBaseName, userName, password);
-	dbw.createConnection(host,port,dataBaseName,userName,password);
-	QSqlQuery sql;
-
->>>>>>> 4c354530084aaeaac4ede1dfc807070f71811127
 	ui->discipComboBox->addItem("");
 	ui->izdComboBox->addItem("");
 
@@ -131,7 +122,6 @@ void MainWindow::on_additem_clicked()
 	id_forchange=0;
 	ad.exec(id_forchange);
 	
-<<<<<<< HEAD
 }
 
 void MainWindow::on_connect_activated()
@@ -184,6 +174,4 @@ void MainWindow::init()
 	{
 		ui->izdComboBox->addItem(sql.value(1).toString());
 	}
-=======
->>>>>>> 4c354530084aaeaac4ede1dfc807070f71811127
 }
