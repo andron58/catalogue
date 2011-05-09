@@ -6,6 +6,8 @@
 #include <QPSQLDriver>
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlError>
+#include <QSqlQuery>
+#include <QDialog>
 
 
 class DBwork : public QObject
@@ -21,6 +23,8 @@ public:
 	bool createConnection(QString& host, int& port, QString& dataBaseName,
 		QString& userName, QString& password);
 	void closeConnection();
+	void SqlQueryExec (QString& str, QSqlQuery& query);
+
 
 private:
 	

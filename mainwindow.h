@@ -24,6 +24,7 @@ public:
 	int port;
 	void init();
 	void clearform();
+	int current_user_id;
 
 private slots:
 	void searchButton_clicked();

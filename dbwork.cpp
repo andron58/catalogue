@@ -72,3 +72,12 @@ void DBwork::closeConnection()
 {
 	db.close();
 }
+
+void DBwork::SqlQueryExec (QString& str, QSqlQuery& query)
+{
+	if (!query.exec(str))
+	{
+		QMessageBox::warning(0, "Database Error", query.lastError().text());
+		return;
+	}
+}

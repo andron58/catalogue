@@ -115,15 +115,16 @@ void MainWindow::on_action_activated()
     PreferencesDialog dialog;
     dialog.exec();
 }
-
+//обработка нажатия иконки добавить
 void MainWindow::on_additem_clicked()
 {
 	AddForm ad;
 	id_forchange=0;
-	ad.exec(id_forchange);
+	current_user_id=1;
+	ad.exec(id_forchange, current_user_id);
 	
 }
-
+//обработка нажатия иконки соединить
 void MainWindow::on_connect_activated()
 {
 	dbw.createConnection(host, port, dataBaseName, userName, password);//перенеси потом это в логин форм... а то закроет форму и сможет работать с БД
@@ -133,7 +134,7 @@ void MainWindow::on_connect_activated()
 	ui->action_3->setDisabled(false);
 	init();
 }
-
+//обработка нажатия иконки stop
 void MainWindow::on_disconnect_activated()
 {
 	dbw.closeConnection();
@@ -146,7 +147,7 @@ void MainWindow::clearform()
 	ui->discipComboBox->clear();
 	ui->izdComboBox->clear();
 }
-
+//инициалзиация формы, вместо конструктора..
 void MainWindow::init()
 {
 	QSqlQuery sql;

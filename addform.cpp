@@ -7,24 +7,23 @@ AddForm::AddForm(QWidget *parent)
 	ui.setupUi(this);
 	
 }
-void AddForm::exec(int change_id)
+void AddForm::exec(int change_id, int cur_id)
 {
-<<<<<<< HEAD
 	pd.loadPreferences();
-=======
-	
->>>>>>> 4c354530084aaeaac4ede1dfc807070f71811127
+	current_user=cur_id;
 	id_ch=change_id;
 	filenm="";
 	imagenm="";
 	currentid_file=NULL;
 	currentid_image=NULL;
 	QSqlQuery sqlquery;
-	if (!sqlquery.exec("SELECT * from public.kursgloss where parent=0"))
-	{
-		QMessageBox::warning(0, "Database Error", sqlquery.lastError().text());
-		return;
-	}
+	QString QueryString = "SELECT * from public.kursgloss where parent=0";
+	dbw.SqlQueryExec(QueryString,sqlquery);
+	//if (!sqlquery.exec("SELECT * from public.kursgloss where parent=0"))
+	//{
+	//	QMessageBox::warning(0, "Database Error", sqlquery.lastError().text());
+	//	return;
+	//}
 	ui.KurscomboBox->addItem("");
 	while (sqlquery.next())
 	{
@@ -44,42 +43,40 @@ void AddForm::exec(int change_id)
 void AddForm::changepub()
 {
 	QSqlQuery query, query_for_image, query_for_file;
-	QString str,image_fn, file_fn;
+	QString str,image_fn, file_fn, QueryString;
 	QStringList list;
 
 	ui.AddButton->setText("Изменить");
-	if (!query.exec("SELECT * FROM public.publication WHERE id_pub="+QString::number(id_ch)+""))
+	QueryString="SELECT * FROM public.publication WHERE id_pub="+QString::number(id_ch)+"";
+	dbw.SqlQueryExec(QueryString,query);
+	/*if (!query.exec("SELECT * FROM public.publication WHERE id_pub="+QString::number(id_ch)+""))
 	{
 		QMessageBox::warning(0, "Database Error", query.lastError().text());
 		return;
-	}
+	}*/
+	QueryString="SELECT image_filename FROM public.images WHERE id_image=(SELECT id_image FROM public.publication WHERE id_pub="+QString::number(id_ch)+")";
 
-	if (!query_for_image.exec("SELECT image_filename FROM public.images WHERE id_image=(SELECT id_image FROM public.publication WHERE id_pub="+QString::number(id_ch)+")"))
+	dbw.SqlQueryExec(QueryString,query_for_image);
+
+	/*if (!query_for_image.exec("SELECT image_filename FROM public.images WHERE id_image=(SELECT id_image FROM public.publication WHERE id_pub="+QString::number(id_ch)+")"))
 	{
 		QMessageBox::warning(0, "Database Error", query_for_image.lastError().text());
 		return;
-	}
-	
-	if (!query_for_file.exec("SELECT filename FROM public.files WHERE id_file=(SELECT id_file FROM public.publication WHERE id_pub="+QString::number(id_ch)+")"))
+	}*/
+	QueryString="SELECT filename FROM public.files WHERE id_file=(SELECT id_file FROM public.publication WHERE id_pub="+QString::number(id_ch)+")";
+	dbw.SqlQueryExec(QueryString,query_for_file);
+	/*if (!query_for_file.exec("SELECT filename FROM public.files WHERE id_file=(SELECT id_file FROM public.publication WHERE id_pub="+QString::number(id_ch)+")"))
 	{
 		QMessageBox::warning(0, "Database Error", query_for_file.lastError().text());
 		return;
-	}
-<<<<<<< HEAD
+	}*/
+
 	
 	while (query_for_image.next())
 	{
 		ui.ImagepathEdit->setText(query_for_image.value(0).toString());
 	}
-	
-=======
-	
-	while (query_for_image.next())
-	{
-		ui.ImagepathEdit->setText(query_for_image.value(0).toString());
-	}
-	
->>>>>>> 4c354530084aaeaac4ede1dfc807070f71811127
+
 	while (query_for_file.next())
 	{
 		ui.FilepathEdit->setText(query_for_file.value(0).toString());
@@ -101,7 +98,6 @@ void AddForm::changepub()
 		ui.DeskEdit->setText(query.value(8).toString());
 		ui.YearEdit->setText(query.value(10).toString());
 		ui.checkBox->setTristate(query.value(10).toBool());
-
 	}
 
 
@@ -137,26 +133,27 @@ void AddForm::on_KursCombobox_select()
 {
 	kursklass="";
 	ui.SemcomboBox->clear();
-	QString str="SELECT name_gloss FROM public.kursgloss WHERE parent=(SELECT id_gloss FROM public.kursgloss WHERE name_gloss='"+ui.KurscomboBox->currentText()+"')";
+	QString QueryString="SELECT name_gloss FROM public.kursgloss WHERE parent=(SELECT id_gloss FROM public.kursgloss WHERE name_gloss='"+ui.KurscomboBox->currentText()+"')";
 	QSqlQuery query;
-
-	if (!query.exec(str))
+	dbw.SqlQueryExec(QueryString,query);
+	/*if (!query.exec(str))
 	{
 		QMessageBox::warning(0, "Database Error", query.lastError().text());
 		return;
-	}
+	}*/
 	ui.SemcomboBox->addItem("");
 	while (query.next())
 	{
 		ui.SemcomboBox->addItem(query.value(0).toString());
 	}
-	query.clear();
-	if (!query.exec("SELECT id_gloss from public.kursgloss where name_gloss = '"+ui.KurscomboBox->currentText()+"'"))
+	QueryString="SELECT id_gloss from public.kursgloss where name_gloss = '"+ui.KurscomboBox->currentText()+"'";
+	dbw.SqlQueryExec(QueryString,query);
+	/*if (!query.exec("SELECT id_gloss from public.kursgloss where name_gloss = '"+ui.KurscomboBox->currentText()+"'"))
 	{
 		//ошибка запроса
 		QMessageBox::warning(0, "Database Error", query.lastError().text());
 		return;
-	}
+	}*/
 	while (query.next())
 	{
 		kursklass=query.value(0).toString();
@@ -168,27 +165,29 @@ void AddForm::on_KursCombobox_select()
 void AddForm::on_SemCombobox_select()
 {
 	ui.SubjectcomboBox->clear();
-	QString str="SELECT * from public.subject";
+	QString QueryString="SELECT * from public.subject";
 	QSqlQuery query;
-	if (!query.exec(str))
+	dbw.SqlQueryExec(QueryString,query);
+	/*if (!query.exec(str))
 	{
 		//ошибка запроса
 		QMessageBox::warning(0, "Database Error", query.lastError().text());
 		return;
-	}
+	}*/
 	ui.SubjectcomboBox->addItem("");
 	while (query.next())
 	{
 		ui.SubjectcomboBox->addItem(query.value(1).toString());
 	}
 	
-	query.clear();
-	if (!query.exec("SELECT glossary from public.kursgloss where name_gloss = '"+ui.SemcomboBox->currentText()+"'"))
+	QueryString="SELECT glossary from public.kursgloss where name_gloss = '"+ui.SemcomboBox->currentText()+"'";
+	dbw.SqlQueryExec(QueryString,query);
+	/*if (!query.exec("SELECT glossary from public.kursgloss where name_gloss = '"+ui.SemcomboBox->currentText()+"'"))
 	{
 		//ошибка запроса
 		QMessageBox::warning(0, "Database Error", query.lastError().text());
 		return;
-	}
+	}*/
 	while (query.next())
 	{
 		kursklass+=query.value(0).toString();
@@ -203,28 +202,31 @@ void AddForm::on_SubjectCombobox_select()
 	id_subject=0;
 	ui.TypecomboBox->clear();
 	
-	QString str="SELECT * from public.type";
+	QString QueryString="SELECT * from public.type";
 	QSqlQuery query;
-	if (!query.exec(str))
+	dbw.SqlQueryExec(QueryString,query);
+
+	/*if (!query.exec(str))
 	{
 		//ошибка запроса
 		QMessageBox::warning(0, "Database Error", query.lastError().text());
 		return;
-	}
+	}*/
 	ui.TypecomboBox->addItem("");
 	while (query.next())
 	{
 		ui.TypecomboBox->addItem(query.value(1).toString());
 	}
 
-	query.clear();
+	QueryString="SELECT id_subject FROM public.subject WHERE sub_name = '"+ui.SubjectcomboBox->currentText()+"'";
+	dbw.SqlQueryExec(QueryString,query);
 
-	if (!query.exec("SELECT id_subject FROM public.subject WHERE sub_name = '"+ui.SubjectcomboBox->currentText()+"'"))
+	/*if (!query.exec("SELECT id_subject FROM public.subject WHERE sub_name = '"+ui.SubjectcomboBox->currentText()+"'"))
 	{
 		//ошибка запроса
 		QMessageBox::warning(0, "Database Error", query.lastError().text());
 		return;
-	}
+	}*/
 	while (query.next())
 	{
 		id_subject=query.value(0).toInt();
@@ -235,13 +237,15 @@ void AddForm::on_SubjectCombobox_select()
 void AddForm::on_TypeCombobox_select()
 {
 	QSqlQuery query;
+	QString QueryString="SELECT id_type FROM public.type WHERE type_name = '"+ui.TypecomboBox->currentText()+"'";
 	id_type=0;
-	if (!query.exec("SELECT id_type FROM public.type WHERE type_name = '"+ui.TypecomboBox->currentText()+"'"))
+	dbw.SqlQueryExec(QueryString,query);
+	/*if (!query.exec("SELECT id_type FROM public.type WHERE type_name = '"+ui.TypecomboBox->currentText()+"'"))
 	{
 		//ошибка запроса
 		QMessageBox::warning(0, "Database Error", query.lastError().text());
 		return;
-	}
+	}*/
 	while (query.next())
 	{
 		id_type=query.value(0).toInt();
@@ -317,8 +321,6 @@ void AddForm::on_addButton_clicked()
 		msgbox.exec();
 		return;
 	}
-	
-	
 	if (imagenm!="")
 	{
 		query.prepare("INSERT INTO public.images (image, image_filename)" 
@@ -362,7 +364,7 @@ void AddForm::on_addButton_clicked()
 		"VALUES (:id_user, :id_subject, :id_type, :author, :name, :izdat, :description, :id_image, :id_file, :access, :year, :klassgloss)");
 	bool access=ui.checkBox->isChecked();
 
-	query.bindValue(":id_user",1);
+	query.bindValue(":id_user",current_user);
 	query.bindValue(":id_subject",id_subject);
 	query.bindValue(":id_type",id_type);
 	query.bindValue(":author",ui.AuthorEdit->text());
